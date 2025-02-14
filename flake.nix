@@ -16,7 +16,6 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        otel-tui-package = otel-tui.packages.${system}.default;
       in
       {
         devShells.default = pkgs.mkShell {
@@ -24,7 +23,7 @@
             with pkgs;
             [
               nodejs_22
-              otel-tui-package
+              otel-tui.packages.${system}.default
             ]
             ++ (with pkgs.nodePackages; [
               pnpm_10

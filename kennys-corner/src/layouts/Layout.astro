@@ -1,29 +1,29 @@
 ---
 import "../global.css";
 export interface Props {
-	title: string;
-	description?: string | undefined;
-};
+  title: string;
+  description?: string | undefined;
+}
 
 const { title, description } = Astro.props;
 ---
+
 <html lang="en">
-	<head>
-		<slot name="head-start"/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="sitemap" href="/sitemap-index.xml"/>
+  <head>
+    <slot name="head-start" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/sitemap-index.xml" rel="sitemap" />
 
-		<title>{title}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		{description ? <meta name="description" content={description} /> : null}
-		<slot name="head-meta"/>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
+    {description ? <meta content={description} name="description" /> : null}
+    <slot name="head-meta" />
 
-		<slot name="head-end"/>
-	</head>
-	<body>
-		<slot/>
-	</head>
-	</body>
+    <slot name="head-end" />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
