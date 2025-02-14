@@ -10,7 +10,7 @@ console.log({ VERCEL_URL: process.env.VERCEL_URL })
 console.log({ env: process.env })
 
 export default defineConfig({
-        site: process.env.VERCEL_URL || 'http://localhost:4321',
+        site: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:4321',
         vite: {
                 plugins: [tailwindcss()]
         },
