@@ -22,7 +22,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs_22
-            pnpm_9
+            pnpm_10
             typescript
             otel-tui-package
           ];
