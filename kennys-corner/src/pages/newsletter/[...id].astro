@@ -19,7 +19,8 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title} description={post.data.description}>
 	<meta name="author" content={post.data.author} slot="head-meta" />
-	<h1>{post.data.title}</h1>
+
+	<h1 class="text-5xl">{post.data.title}</h1>
 	<Content />
 	<ReactButton className='bg-amber-200' client:load>
 		The text button
