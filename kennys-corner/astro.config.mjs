@@ -7,7 +7,7 @@ import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 
 export default defineConfig({
-        site: 'http://localhost:4321',
+        site: process.env.VERCEL_URL || 'http://localhost:4321',
         vite: {
                 plugins: [tailwindcss()]
         },
