@@ -6,6 +6,9 @@ import vercel from '@astrojs/vercel';
 
 import react from '@astrojs/react';
 
+console.log({ VERCEL_URL: process.env.VERCEL_URL })
+console.log({ env: process.env })
+
 export default defineConfig({
         site: process.env.VERCEL_URL || 'http://localhost:4321',
         vite: {
