@@ -20,12 +20,17 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            nodejs_22
-            pnpm_10
-            typescript
-            otel-tui-package
-          ];
+          buildInputs =
+            with pkgs;
+            [
+              nodejs_22
+              otel-tui-package
+            ]
+            ++ (with pkgs.nodePackages; [
+              pnpm_10
+              typescript
+              vercel
+            ]);
         };
       }
     );
