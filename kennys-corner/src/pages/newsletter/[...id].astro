@@ -1,4 +1,5 @@
 ---
+import FastLoadingComponent from "@/components/FastLoadingComponent.astro";
 import Layout from "@/components/layouts/Layout.astro";
 import ReactButton from "@/components/ReactButton";
 import SlowLoadingComponent from "@/components/SlowLoadingComponent.astro";
@@ -22,7 +23,5 @@ const { Content } = await render(post);
     <h1 class="text-5xl">{post.data.title}</h1>
     <Content />
     <ReactButton className="bg-amber-200" client:load>The text button</ReactButton>
-    <SlowLoadingComponent server:defer>
-        <SlowLoadingComponent slot="fallback">Default</SlowLoadingComponent>
-    </SlowLoadingComponent>
+    <SlowLoadingComponent server:defer> <FastLoadingComponent slot="fallback" /> </SlowLoadingComponent>
 </Layout>
