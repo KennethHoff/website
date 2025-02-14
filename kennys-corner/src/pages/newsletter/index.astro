@@ -1,6 +1,6 @@
 ---
+import Layout from "@/components/layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import Layout from "../../components/layouts/Layout.astro";
 
 const allWeeks = await getCollection("newsletter");
 ---
