@@ -1,16 +1,15 @@
 ---
+import Layout from "@/components/layouts/Layout.astro";
+import ReactButton from "@/components/ReactButton";
+import SlowLoadingComponent from "@/components/SlowLoadingComponent.astro";
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import ReactButton from "../../components/ReactButton";
-import SlowLoadingComponent from "../../components/SlowLoadingComponent.astro";
-import FastLoadingComponent from "../../components/FastLoadingComponent.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("newsletter");
-  return posts.map((post) => ({
-    params: { id: post.id },
-    props: { post },
-  }));
+    const posts = await getCollection("newsletter");
+    return posts.map((post) => ({
+        params: { id: post.id },
+        props: { post },
+    }));
 }
 
 const { post } = Astro.props;
@@ -18,14 +17,12 @@ const { Content } = await render(post);
 ---
 
 <Layout description={post.data.description} title={post.data.title}>
-  <meta content={post.data.author} name="author" slot="head-meta" />
+    <meta content={post.data.author} name="author" slot="head-meta" />
 
-  <h1 class="text-5xl">{post.data.title}</h1>
-  <Content />
-  <ReactButton className="bg-amber-200" client:load>
-    The text button
-  </ReactButton>
-  <SlowLoadingComponent server:defer>
-    <FastLoadingComponent slot="fallback">Default</FastLoadingComponent>
-  </SlowLoadingComponent>
+    <h1 class="text-5xl">{post.data.title}</h1>
+    <Content />
+    <ReactButton className="bg-amber-200" client:load>The text button</ReactButton>
+    <SlowLoadingComponent server:defer>
+        <SlowLoadingComponent slot="fallback">Default</SlowLoadingComponent>
+    </SlowLoadingComponent>
 </Layout>
