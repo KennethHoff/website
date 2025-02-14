@@ -6,11 +6,16 @@ import vercel from '@astrojs/vercel';
 
 import react from '@astrojs/react';
 
-console.log({ VERCEL_URL: process.env.VERCEL_URL })
-console.log({ env: process.env })
+const siteUrl =
+        // If Production, use production URL
+        process.env.VERCEL_ENV == 'production' ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+                // Otherwise, if you have a VERCEL_URL, use it
+                : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}`
+                        // Otherwise, just use localhost.
+                        : 'http://localhost:4321';
 
 export default defineConfig({
-        site: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:4321',
+        site: siteUrl,
         vite: {
                 plugins: [tailwindcss()]
         },
