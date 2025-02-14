@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection('newsletter');
@@ -13,14 +14,8 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<head>
-	<title>{post.data.title} | Kenny's Corner</title>
-	<meta name="author" content={post.data.author} />
-	{post.data.description ? <meta name="description" content={post.data.description} /> : null}
-</head>
-
-<body>
+<Layout title={post.data.title} description={post.data.description}>
+	<meta name="author" content={post.data.author} slot="head-meta" />
 	<h1>{post.data.title}</h1>
 	<Content />
-</body>
-
+</Layout>
