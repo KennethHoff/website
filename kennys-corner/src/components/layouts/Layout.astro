@@ -27,11 +27,28 @@ const {
 
         <slot name="head-end" />
     </head>
-    <body class="grid grid-cols-(--primary-grid-template-columns) gap-x-(--primary-grid-column-gap)">
-        <header class="col-[breakout] grid grid-cols-subgrid"><slot name="header">header</slot></header>
+    <body
+        class="grid min-h-screen grid-cols-(--primary-grid-template-columns) grid-rows-[auto_1fr_auto] gap-x-(--primary-grid-column-gap)"
+    >
+        <slot name="header">
+            <header class="col-[breakout] grid grid-cols-subgrid bg-amber-400">
+                <nav class="col-[content] flex flex-row place-content-between gap-4">
+                    <p>Logo</p>
+                    <p>Søk</p>
+                </nav>
+            </header>
+        </slot>
         <main class="col-[breakout] grid grid-cols-subgrid">
             <slot />
         </main>
-        <footer class="col-[breakout] grid grid-cols-subgrid"><slot name="footer">footer</slot></footer>
+        <slot name="footer">
+            <footer class="col-[breakout] grid grid-cols-subgrid bg-fuchsia-300">
+                <nav class="col-[content] grid grid-cols-3">
+                    <p>Kundeservice</p>
+                    <p>Noe annet</p>
+                    <p>Enda mer greier</p>
+                </nav>
+            </footer>
+        </slot>
     </body>
 </html>

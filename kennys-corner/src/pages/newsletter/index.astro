@@ -10,7 +10,6 @@ const allWeeks = await getCollection("newsletter");
         title: "Newsletter | Kenny's Corner",
     }}
 >
-    <nav slot="header">New header</nav>
     <ol>
         {
             allWeeks.map((post) => {
@@ -22,5 +21,4 @@ const allWeeks = await getCollection("newsletter");
             })
         }
     </ol>
-    <nav slot="footer">New footer</nav>
 </Layout>
