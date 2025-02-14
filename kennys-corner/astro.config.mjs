@@ -21,4 +21,5 @@ export default defineConfig({
         },
         integrations: [sitemap(), react()],
         adapter: vercel(),
+        trailingSlash: 'never',
 });
