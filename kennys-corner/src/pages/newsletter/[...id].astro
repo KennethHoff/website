@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import MyButton from '../../components/MyButton';
+import ReactButton from '../../components/ReactButton';
 import SlowLoadingComponent from '../../components/SlowLoadingComponent.astro';
 import FastLoadingComponent from '../../components/FastLoadingComponent.astro';
 
@@ -21,9 +21,9 @@ const { Content } = await render(post);
 	<meta name="author" content={post.data.author} slot="head-meta" />
 	<h1>{post.data.title}</h1>
 	<Content />
-	<MyButton className='bg-amber-200' client:load>
+	<ReactButton className='bg-amber-200' client:load>
 		The text button
-	</MyButton>
+	</ReactButton>
 	<SlowLoadingComponent server:defer>
 		<FastLoadingComponent slot="fallback">Default</p>
 	</SlowLoadingComponent>
