@@ -45,9 +45,11 @@
         --primary-grid-outer-padding: --spacing(8);
     }
 
-    @media screen and (width >= theme(--breakpoint-md)) { }
+    @media screen and (width >= theme(--breakpoint-md)) {
+    }
 
-    @media screen and (width >= theme(--breakpoint-lg)) { } 
+    @media screen and (width >= theme(--breakpoint-lg)) {
+    }
 
     @media screen and (width >= theme(--breakpoint-xl)) {
         --primary-grid-column-gap: --spacing(8);

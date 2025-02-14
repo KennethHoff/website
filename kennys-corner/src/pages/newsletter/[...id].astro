@@ -17,7 +17,12 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout description={post.data.description} title={post.data.title}>
+<Layout
+    metadata={{
+        description: post.data.description,
+        title: post.data.title,
+    }}
+>
     <meta content={post.data.author} name="author" slot="head-meta" />
 
     <h1 class="text-5xl">{post.data.title}</h1>
