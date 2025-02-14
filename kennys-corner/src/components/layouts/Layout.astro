@@ -23,7 +23,9 @@ const { title, description } = Astro.props;
 
         <slot name="head-end" />
     </head>
-    <body>
+    <body class="grid grid-cols-(--primary-grid-template-columns) gap-x-(--primary-grid-column-gap)">
+        <header class="col-[breakout] grid grid-cols-subgrid"><slot name="header">header</slot></header>
         <slot />
+        <footer class="col-[breakout] grid grid-cols-subgrid"><slot name="footer">footer</slot></footer>
     </body>
 </html>

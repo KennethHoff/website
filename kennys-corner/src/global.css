@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@theme {
+    /* Disables all default breakpoints */
+    --breakpoint-*: initial;
+
+    /* These breakpoints are copy-pasted from Linea */
+    --breakpoint-xs: 320px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+}
+
+/* 
+* A custom variant that applies the same styling to :hover and :focus
+* `group-hocus` etc.. also works
+* */
+@custom-variant hocus {
+    &:hover,
+    &:focus {
+        @slot;
+    }
+}
+
+@utility text-underline-under {
+    text-underline-position: under;
+}
+
+@utility bg-top-center {
+    background-position: top center;
+}
+
+:root {
+    --primary-grid-template-columns: [breakout-start] minmax(var(--primary-grid-additional-outer-padding), auto)
+        [content-start] repeat(12, minmax(0, calc(120px - var(--primary-grid-column-gap)))) [content-end]
+        minmax(var(--primary-grid-additional-outer-padding), auto) [breakout-end];
+
+    --primary-grid-column-gap: 5vw;
+    --primary-grid-outer-padding: 5vw;
+    --primary-grid-additional-outer-padding: calc(var(--primary-grid-outer-padding) - var(--primary-grid-column-gap));
+
+    @media screen and (width >= theme(--breakpoint-sm)) {
+        --primary-grid-column-gap: --spacing(6);
+        --primary-grid-outer-padding: --spacing(8);
+    }
+
+    @media screen and (width >= theme(--breakpoint-md)) { }
+
+    @media screen and (width >= theme(--breakpoint-lg)) { } 
+
+    @media screen and (width >= theme(--breakpoint-xl)) {
+        --primary-grid-column-gap: --spacing(8);
+        --primary-grid-outer-padding: --spacing(16);
+    }
+}
