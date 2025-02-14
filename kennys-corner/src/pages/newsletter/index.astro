@@ -5,13 +5,17 @@ import { getCollection } from "astro:content";
 const allWeeks = await getCollection("newsletter");
 ---
 
-<Layout title="Newsletter | Kenny's Corner">
-    <nav class="" slot="header"></nav>
+<Layout
+    metadata={{
+        title: "Newsletter | Kenny's Corner",
+    }}
+>
+    <nav slot="header">New header</nav>
     <ol>
         {
             allWeeks.map((post) => {
                 return (
-                    <li transition:name={post.id}>
+                    <li>
                         <a href={`/newsletter/${post.id}`}>{post.data.title}</a>
                     </li>
                 );
