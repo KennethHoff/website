@@ -17,7 +17,6 @@ const {
         <slot name="head-start" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <link href="/sitemap-index.xml" rel="sitemap" />
-
         <title>{title}</title>
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
@@ -33,8 +32,12 @@ const {
         <slot name="header">
             <header class="col-[breakout] grid grid-cols-subgrid bg-amber-400">
                 <nav class="col-[content] flex flex-row place-content-between gap-4">
-                    <p>Logo</p>
-                    <p>Søk</p>
+                    <div class="flex flex-row gap-8">
+                        <p>Logo</p>
+                    </div>
+                    <div class="flex flex-row items-center gap-8">
+                        <p>Søk</p>
+                    </div>
                 </nav>
             </header>
         </slot>
