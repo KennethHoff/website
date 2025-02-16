@@ -74,11 +74,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1739536518,
-        "narHash": "sha256-4j3OCKvsGpjXXhajXPgWQjsuSOlEq7c34Nb7v+n9AWI=",
+        "lastModified": 1739701287,
+        "narHash": "sha256-fv84Fo8BStc+jPXYPyO/Lgf4cJhISFaHzKhY4YhON9Y=",
         "owner": "kennethhoff",
         "repo": "flake-otel-tui",
-        "rev": "26adae69e0bca247347c2525373aa13bc2109c9e",
+        "rev": "a32d043c1dea52badda046b48de13bfd4f3a55ca",
         "type": "github"
       },
       "original": {
