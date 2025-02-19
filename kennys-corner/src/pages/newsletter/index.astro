@@ -1,8 +1,6 @@
 ---
 import Layout from "@/components/layouts/Layout.astro";
-import { getCollection } from "astro:content";
-
-const allWeeks = await getCollection("newsletter");
+import NewsletterList from "@/components/NewsletterList.astro";
 ---
 
 <Layout
@@ -10,15 +8,5 @@ const allWeeks = await getCollection("newsletter");
         title: "Newsletter | Kenny's Corner",
     }}
 >
-    <ol>
-        {
-            allWeeks.map((post) => {
-                return (
-                    <li>
-                        <a href={`/newsletter/${post.id}`}>{post.data.title}</a>
-                    </li>
-                );
-            })
-        }
-    </ol>
+    <NewsletterList />
 </Layout>

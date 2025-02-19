@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+    class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+const allWeeks = await getCollection("newsletter");
+---
+
+<ol class:list={className}>
+    {
+        allWeeks.map((post) => {
+            return (
+                <li class="has-aria-[current='page']:text-blue-300">
+                    <a
+                        aria-current={Astro.url.pathname.startsWith(`/newsletter/${post.id}`) ? "page" : "false"}
+                        href={`/newsletter/${post.id}`}
+                    >
+                        {post.data.title}
+                    </a>
+                </li>
+            );
+        })
+    }
+</ol>
