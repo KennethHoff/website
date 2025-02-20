@@ -55,7 +55,10 @@ const endpoints = [
 const results = await Promise.all(
     endpoints.map(async (endpoint) => {
         const [health, git] = await Promise.all([
-            fetch(endpoint.health).then((x) => x.text()),
+            fetch(endpoint.health).then(async (x) => ({
+                text: await x.text(),
+                status: x.status,
+            })),
             fetch(endpoint.git).then((x) => x.text()),
         ]);
         return {
@@ -88,8 +91,18 @@ const formatter = new Intl.DateTimeFormat("no-nb", {
                 return (
                     <dl>
                         <dt class="font-bold">{result.name}</dt>
+                        <dd
+                            class:list={[
+                                {
+                                    "text-green-500": result.health.status == 200,
+                                    "text-red-500": result.health.status != 200,
+                                },
+                            ]}
+                        >
+                            Status: <span>{result.health.status}</span>
+                        </dd>
                         <dd>
-                            Status: <span>{result.health}</span>
+                            Health: <span>{result.health.text}</span>
                         </dd>
                         <dd>
                             Git: <span>{result.git}</span>
