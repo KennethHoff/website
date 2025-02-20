@@ -93,8 +93,9 @@ const formatter = new Intl.DateTimeFormat("no-nb", {
                         <dt class="font-bold">{result.name}</dt>
                         <dd
                             class:list={[
+                                "font-semibold",
                                 {
-                                    "text-green-600": result.health.status == 200,
+                                    "text-green-700": result.health.status == 200,
                                     "text-red-600": result.health.status != 200,
                                 },
                             ]}
