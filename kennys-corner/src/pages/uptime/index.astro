@@ -52,22 +52,20 @@ const endpoints = [
     },
 ] satisfies Endpoint[];
 
-const results = (
-    await Promise.all(
-        endpoints.map(async (endpoint) => {
-            const [health, git] = await Promise.all([
-                fetch(endpoint.health).then((x) => x.text()),
-                fetch(endpoint.git).then((x) => x.text()),
-            ]);
-            return {
-                name: endpoint.name,
-                health: health,
-                git: git,
-                datetime: new Date(),
-            };
-        }),
-    )
-).filter((x) => x !== null);
+const results = await Promise.all(
+    endpoints.map(async (endpoint) => {
+        const [health, git] = await Promise.all([
+            fetch(endpoint.health).then((x) => x.text()),
+            fetch(endpoint.git).then((x) => x.text()),
+        ]);
+        return {
+            name: endpoint.name,
+            health: health,
+            git: git,
+            datetime: new Date(),
+        };
+    }),
+);
 
 const formatter = new Intl.DateTimeFormat("no-nb", {
     year: "2-digit",
