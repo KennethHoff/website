@@ -1,36 +1,107 @@
 ---
+export const prerender = false;
+
 import Layout from "@/components/layouts/Layout.astro";
 
+type Endpoint = {
+    name: string;
+    health: string;
+    git: string;
+};
+
 const endpoints = [
-    {name: "Linea - Test", url: "https://api-www-test.linea.no/health"},
-    {name: "Tensio - Test", url: "https://api-www-test.tensio.no/health"},
-    {name: "Linea - Prod", url: "https://api-www.linea.no/health"},
-    {name: "Tensio - Prod", url: "https://api-www.tensio.no/health"},
-    {name: "MS | Linea - Test", url: "https://api-minesaker-test.linea.no/health"},
-    {name: "MS | Tensio - Test", url: "https://api-minesaker-test.tensio.no/health"},
-    {name: "MS | Linea - Prod", url: "https://api-minesaker.linea.no/health"},
-    {name: "MS | Tensio - Prod", url: "https://api-minesaker.tensio.no/health"},
-];
+    {
+        name: "Linea - Test",
+        health: "https://api-www-test.linea.no/health",
+        git: "https://api-www-test.linea.no/__git-info",
+    },
+    {
+        name: "Tensio - Test",
+        health: "https://api-www-test.tensio.no/health",
+        git: "https://api-www-test.tensio.no/__git-info",
+    },
+    {
+        name: "Linea - Prod",
+        health: "https://api-www.linea.no/health",
+        git: "https://api-www.linea.no/__git-info",
+    },
+    {
+        name: "Tensio - Prod",
+        health: "https://api-www.tensio.no/health",
+        git: "https://api-www.tensio.no/__git-info",
+    },
+    {
+        name: "MS | Linea - Test",
+        health: "https://api-minesaker-test.linea.no/health",
+        git: "https://api-minesaker-test.linea.no/__git-info",
+    },
+    {
+        name: "MS | Tensio - Test",
+        health: "https://api-minesaker-test.tensio.no/health",
+        git: "https://api-minesaker-test.tensio.no/__git-info",
+    },
+    {
+        name: "MS | Linea - Prod",
+        health: "https://api-minesaker.linea.no/health",
+        git: "https://api-minesaker.linea.no/__git-info",
+    },
+    {
+        name: "MS | Tensio - Prod",
+        health: "https://api-minesaker.tensio.no/health",
+        git: "https://api-minesaker.tensio.no/__git-info",
+    },
+] satisfies Endpoint[];
 
-const results = await Promise.all(endpoints.map(async endpoint => {
-    const result = await fetch(endpoint.url);
-    if (result.success) {
-        return null;
-    }
-    return await {
-        name: endpoint.name,
-        text: result.text()
-    }
-}));
+const results = (
+    await Promise.all(
+        endpoints.map(async (endpoint) => {
+            const [health, git] = await Promise.all([
+                fetch(endpoint.health).then((x) => x.text()),
+                fetch(endpoint.git).then((x) => x.text()),
+            ]);
+            return {
+                name: endpoint.name,
+                health: health,
+                git: git,
+                datetime: new Date(),
+            };
+        }),
+    )
+).filter((x) => x !== null);
 
+const formatter = new Intl.DateTimeFormat("no-nb", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+});
 ---
 
-<Layout metadata={{
-    title: "Uptime"
-}}>
-    <ul class="col-[content]">
-        {results.map(x => {
-        return <li>{x.name}: {x.text}</li>;
-        })
+<Layout
+    metadata={{
+        title: "Uptime",
+    }}
+>
+    <ul class="col-[content] grid">
+        {
+            results.map((result) => {
+                return (
+                    <dl>
+                        <dt class="font-bold">{result.name}</dt>
+                        <dd>
+                            Status: <span>{result.health}</span>
+                        </dd>
+                        <dd>
+                            Git: <span>{result.git}</span>
+                        </dd>
+                        <dd>
+                            Checked: <span>{formatter.format(result.datetime)}</span>
+                        </dd>
+                    </dl>
+                );
+            })
+        }
     </ul>
 </Layout>
