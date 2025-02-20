@@ -85,11 +85,11 @@ const formatter = new Intl.DateTimeFormat("no-nb", {
         title: "Uptime",
     }}
 >
-    <div class="col-[content] grid">
+    <div class="col-[content] grid gap-8">
         {
             results.map((result) => {
                 return (
-                    <dl>
+                    <dl class="w-max rounded-2xl bg-neutral-300 p-4">
                         <dt class="font-bold">{result.name}</dt>
                         <dd
                             class:list={[
