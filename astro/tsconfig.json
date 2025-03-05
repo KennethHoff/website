@@ -9,7 +9,8 @@
         "jsxImportSource": "react",
         "baseUrl": ".",
         "paths": {
-            "@/components/*": ["./src/components/*"]
+            "@/components/*": ["./src/components/*"],
+            "@/functions": ["./src/functions/index.ts"]
         }
     }
 }
