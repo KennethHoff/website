@@ -1,4 +1,5 @@
 ---
+import SpeedInsights from "@vercel/speed-insights/astro";
 import "src/global.css";
 export interface Props {
     metadata: {
@@ -53,5 +54,6 @@ const {
                 </nav>
             </footer>
         </slot>
+        <SpeedInsights />
     </body>
 </html>
