@@ -2,10 +2,11 @@ import { actions } from "astro:actions";
 import type React from "react";
 import { useState } from "react";
 
-type Props = {
+interface Props {
     children: React.ReactNode;
     className?: string;
 };
+
 export default function ReactButton({ children, className }: Props) {
     const [response, setResponse] = useState<string | undefined>(undefined);
     return (
