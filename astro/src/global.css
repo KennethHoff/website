@@ -23,6 +23,14 @@
     }
 }
 
+@utility col-content {
+    @apply col-[content];
+}
+
+@utility col-breakout {
+    @apply col-[breakout];
+}
+
 @utility text-underline-under {
     text-underline-position: under;
 }

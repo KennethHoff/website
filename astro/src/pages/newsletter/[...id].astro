@@ -25,7 +25,7 @@ const { Content } = await render(post);
 >
     <meta content={post.data.author} name="author" slot="head-meta" />
 
-    <article class="col-[content]">
+    <article class="col-content">
         <h1 class="text-5xl">{post.data.title}</h1>
         <Content />
         <ReactButton className="bg-amber-200" client:load>The text button</ReactButton>

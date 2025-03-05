@@ -1,7 +1,7 @@
 ---
 import SpeedInsights from "@vercel/speed-insights/astro";
 import "src/global.css";
-export interface Props {
+interface Props {
     metadata: {
         title: string;
         description?: string | undefined;
@@ -31,8 +31,8 @@ const {
         class="grid min-h-screen grid-cols-(--primary-grid-template-columns) grid-rows-[auto_1fr_auto] gap-x-(--primary-grid-column-gap)"
     >
         <slot name="header">
-            <header class="col-[breakout] grid grid-cols-subgrid bg-amber-400">
-                <nav class="col-[content] flex flex-row place-content-between gap-4">
+            <header class="col-breakout grid grid-cols-subgrid bg-amber-400">
+                <nav class="col-content flex flex-row place-content-between gap-4">
                     <div class="flex flex-row gap-8">
                         <p>Logo</p>
                     </div>
@@ -42,12 +42,12 @@ const {
                 </nav>
             </header>
         </slot>
-        <main class="col-[breakout] grid grid-cols-subgrid">
+        <main class="col-breakout grid grid-cols-subgrid">
             <slot />
         </main>
         <slot name="footer">
-            <footer class="col-[breakout] grid grid-cols-subgrid bg-fuchsia-300">
-                <nav class="col-[content] grid grid-cols-3">
+            <footer class="col-breakout grid grid-cols-subgrid bg-fuchsia-300">
+                <nav class="col-content grid grid-cols-3">
                     <p>Kundeservice</p>
                     <p>Noe annet</p>
                     <p>Enda mer greier</p>
