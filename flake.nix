@@ -26,6 +26,7 @@
               pnpm_10
               typescript
               vercel
+              turbo
             ]);
         };
       }
