@@ -1,0 +1,8 @@
+{
+    "name": "@repo/utils",
+    "private": true,
+    "exports": "./index.ts",
+    "scripts": {
+        "lint": "echo knut"
+    }
+}

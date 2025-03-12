@@ -19,6 +19,12 @@ importers:
       '@astrojs/vercel':
         specifier: 8.1.1
         version: 8.1.1(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.35.0)(typescript@5.8.2))(react@19.0.0)(rollup@4.35.0)
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@vercel/speed-insights':
         specifier: 1.2.0
         version: 1.2.0(react@19.0.0)
@@ -68,6 +74,18 @@ importers:
       typescript:
         specifier: 5.8.2
         version: 5.8.2
+
+  packages/ui:
+    dependencies:
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../utils
+    devDependencies:
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
+
+  packages/utils: {}
 
 packages:
 

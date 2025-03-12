@@ -7,9 +7,11 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier . --write && eslint . --fix"
+        "format": "prettier . --write && eslint . --fix",
+        "check-types": "tsc --noEmit"
     },
     "dependencies": {
+        "@repo/utils": "workspace:*",
         "@astrojs/react": "4.2.1",
         "@astrojs/sitemap": "3.2.1",
         "@astrojs/vercel": "8.1.1",

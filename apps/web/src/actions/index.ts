@@ -1,15 +1,15 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import { sleep } from "@/functions";
+import { sleep } from "@repo/utils";
 
 export const server = {
-    greet: defineAction({
-        input: z.object({
-            name: z.string(),
+        greet: defineAction({
+                input: z.object({
+                        name: z.string(),
+                }),
+                handler: async (input) => {
+                        await sleep(250);
+                        return `Hello, ${input.name}`;
+                },
         }),
-        handler: async (input) => {
-            await sleep(250);
-            return `Hello, ${input.name}`;
-        },
-    }),
 };
