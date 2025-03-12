@@ -5,6 +5,11 @@
             "cache": false,
             "persistent": true
         },
+        "build": {
+            "outputs": [
+                "^build"
+            ]
+        },
         "lint": {},
         "check-types": {}
     }
