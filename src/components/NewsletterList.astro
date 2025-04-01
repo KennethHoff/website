@@ -16,7 +16,7 @@ const allWeeks = await getCollection("newsletter");
             return (
                 <li class="has-aria-[current='page']:text-blue-300">
                     <a
-                        aria-current={Astro.url.pathname.startsWith(`/newsletter/${post.id}`) ? "page" : "false"}
+                        aria-current={Astro.url.pathname.startsWith(`/newsletter/${post.id}`) ? "page" : undefined}
                         href={`/newsletter/${post.id}`}
                     >
                         {post.data.title}

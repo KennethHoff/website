@@ -7,7 +7,7 @@ interface Props {
 }
 
 async function greeter() {
-    const { data } = await actions.greet({ name: "Kenneth" });
+    const { data } = await actions.greet({ name: "Visitor" });
     return <span>{data}</span>;
 }
 

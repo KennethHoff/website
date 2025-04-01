@@ -22,36 +22,26 @@ const {
         <title>{title}</title>
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
+        <meta content="dark" name="color-scheme"/>
         {description && <meta content={description} name="description" />}
         <slot name="head-meta" />
 
         <slot name="head-end" />
     </head>
     <body
-        class="grid min-h-screen grid-cols-(--primary-grid-template-columns) grid-rows-[auto_1fr_auto] gap-x-(--primary-grid-column-gap)"
+        class="grid min-h-screen grid-cols-(--primary-grid-template-columns) grid-rows-[auto_1fr_auto] gap-x-(--primary-grid-column-gap) bg-base-200"
     >
         <slot name="header">
-            <header class="col-breakout grid grid-cols-subgrid bg-amber-400">
-                <nav class="col-content flex flex-row place-content-between gap-4">
-                    <div class="flex flex-row gap-8">
-                        <p>Logo</p>
-                    </div>
-                    <div class="flex flex-row items-center gap-8">
-                        <p>Søk</p>
-                    </div>
-                </nav>
+            <header class="col-breakout grid grid-cols-subgrid bg-neutral h-12 items-center">
+                        <pre class="text-primary">&lt;KC&gt;</pre>
             </header>
         </slot>
         <main class="col-breakout grid grid-cols-subgrid">
             <slot />
         </main>
         <slot name="footer">
-            <footer class="col-breakout grid grid-cols-subgrid bg-fuchsia-300">
-                <nav class="col-content grid grid-cols-3">
-                    <p>Kundeservice</p>
-                    <p>Noe annet</p>
-                    <p>Enda mer greier</p>
-                </nav>
+            <footer class="col-breakout grid bg-base-300 justify-items-end content-center h-12">
+                    <pre class="text-primary">&lt;KC&#47;&gt;</pre>
             </footer>
         </slot>
         <SpeedInsights />

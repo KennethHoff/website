@@ -28,7 +28,7 @@ const { Content } = await render(post);
     <article class="col-content">
         <h1 class="text-5xl">{post.data.title}</h1>
         <Content />
-        <ReactButton className="bg-amber-200" client:load>The text button</ReactButton>
+        <ReactButton className="bg-primary" client:load>The text button</ReactButton>
         <SlowLoadingComponent server:defer> <FastLoadingComponent slot="fallback" /> </SlowLoadingComponent>
     </article>
 </Layout>
