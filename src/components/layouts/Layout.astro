@@ -22,8 +22,7 @@ const {
         <title>{title}</title>
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
-        <meta content={Astro.generator} name="generator" />
-        {description ? <meta content={description} name="description" /> : null}
+        {description && <meta content={description} name="description" />}
         <slot name="head-meta" />
 
         <slot name="head-end" />
