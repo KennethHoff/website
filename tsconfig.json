@@ -1,16 +1,25 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "astro/tsconfigs/strictest",
-    "include": [".astro/types.d.ts", "**/*"],
-    "exclude": ["dist"],
+    "include": [
+        ".astro/types.d.ts",
+        "**/*"
+    ],
+    "exclude": [
+        "dist"
+    ],
     "compilerOptions": {
         "verbatimModuleSyntax": true,
         "jsx": "react-jsx",
         "jsxImportSource": "react",
         "baseUrl": ".",
         "paths": {
-            "@/components/*": ["./src/components/*"],
-            "@/functions": ["./src/functions/index.ts"]
+            "@/components/*": [
+                "./src/components/*"
+            ],
+            "@/functions": [
+                "./src/functions/index.ts"
+            ]
         }
     }
 }

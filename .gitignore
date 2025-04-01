@@ -1,2 +1,4 @@
 .direnv
 .vercel
+node_modules
+.astro
