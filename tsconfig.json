@@ -1,25 +1,26 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "astro/tsconfigs/strictest",
-    "include": [
-        ".astro/types.d.ts",
-        "**/*"
-    ],
-    "exclude": [
-        "dist"
-    ],
-    "compilerOptions": {
-        "verbatimModuleSyntax": true,
-        "jsx": "react-jsx",
-        "jsxImportSource": "react",
-        "baseUrl": ".",
-        "paths": {
-            "@/components/*": [
-                "./src/components/*"
-            ],
-            "@/functions": [
-                "./src/functions/index.ts"
-            ]
-        }
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "astro/tsconfigs/strictest",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "erasableSyntaxOnly": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/functions": [
+        "./src/functions/index.ts"
+      ]
     }
+  }
 }
