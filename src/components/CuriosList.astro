@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+    class?: string;
+}
+
+const curios = await getCollection("curios");
+---
+
+<ol class:list={[Astro.props.class]}>
+    {curios.map((curio) => {
+    const path = `/curios/${curio.id}`;
+            return (
+                <li class="has-aria-[current='page']:text-blue-300">
+                    <a
+                        aria-current={Astro.url.pathname.startsWith(path) ? "page" : undefined}
+                        href={path}
+                    >
+                        {curio.data.title}
+                    </a>
+                </li>
+            );
+        })}
+</ol>
