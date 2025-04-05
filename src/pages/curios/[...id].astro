@@ -23,7 +23,7 @@ const { Content } = await render(post);
         description: post.data.description,
     }}
 >
-    <meta content={post.data.author} name="author" slot="head-meta" />
+    <meta slot="head-meta" content={post.data.author} name="author"/>
     <Schema slot="head-meta" item={post.data.structuredData} />
 
     <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
