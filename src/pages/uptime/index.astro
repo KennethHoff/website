@@ -9,47 +9,47 @@ type Endpoint = {
     git: string;
 };
 
+function createBffEndpoint(name: string, baseUrl: string): Endpoint {
+    return {
+        name: name,
+        health: baseUrl + "/health",
+        git: baseUrl + "/__git-info",
+    };
+}
+
 const endpoints = [
-    {
-        name: "Linea - Test",
-        health: "https://api-www-test.linea.no/health",
-        git: "https://api-www-test.linea.no/__git-info",
-    },
-    {
-        name: "Tensio - Test",
-        health: "https://api-www-test.tensio.no/health",
-        git: "https://api-www-test.tensio.no/__git-info",
-    },
-    {
-        name: "Linea - Prod",
-        health: "https://api-www.linea.no/health",
-        git: "https://api-www.linea.no/__git-info",
-    },
-    {
-        name: "Tensio - Prod",
-        health: "https://api-www.tensio.no/health",
-        git: "https://api-www.tensio.no/__git-info",
-    },
-    {
-        name: "MS | Linea - Test",
-        health: "https://api-minesaker-test.linea.no/health",
-        git: "https://api-minesaker-test.linea.no/__git-info",
-    },
-    {
-        name: "MS | Tensio - Test",
-        health: "https://api-minesaker-test.tensio.no/health",
-        git: "https://api-minesaker-test.tensio.no/__git-info",
-    },
-    {
-        name: "MS | Linea - Prod",
-        health: "https://api-minesaker.linea.no/health",
-        git: "https://api-minesaker.linea.no/__git-info",
-    },
-    {
-        name: "MS | Tensio - Prod",
-        health: "https://api-minesaker.tensio.no/health",
-        git: "https://api-minesaker.tensio.no/__git-info",
-    },
+    createBffEndpoint(
+        'Helgeland Kraft - Test',
+        "https://helgeland-test-bff-open.azurewebsites.net"
+    ),
+    createBffEndpoint(
+        "Linea - Test",
+        "https://api-www-test.linea.no"
+    ),
+    createBffEndpoint(
+        "Linea - Prod",
+        "https://api-www.linea.no"
+    ),
+    createBffEndpoint(
+        "Tensio - Prod",
+        "https://api-www.tensio.no"
+    ),
+    createBffEndpoint(
+        "MS | Linea - Test",
+        "https://api-minesaker-test.linea.no"
+    ),
+    createBffEndpoint(
+        "MS | Tensio - Test",
+        "https://api-minesaker-test.tensio.no"
+    ),
+    createBffEndpoint(
+        "MS | Linea - Prod",
+        "https://api-minesaker.linea.no"
+    ),
+    createBffEndpoint(
+        "MS | Tensio - Prod",
+        "https://api-minesaker.tensio.no"
+    ),
 ] satisfies Endpoint[];
 
 const results = await Promise.all(
@@ -58,8 +58,12 @@ const results = await Promise.all(
             fetch(endpoint.health).then(async (x) => ({
                 text: await x.text(),
                 status: x.status,
+                endpoint: endpoint.health
             })),
-            fetch(endpoint.git).then((x) => x.text()),
+            fetch(endpoint.git).then(async (x) => ({
+                text: await x.text(),
+                endpoint: endpoint.git
+            })),
         ]);
         return {
             name: endpoint.name,
@@ -85,7 +89,7 @@ const formatter = new Intl.DateTimeFormat("no-nb", {
         title: "Uptime",
     }}
 >
-    <div class="col-[content] grid gap-8 py-4">
+    <div class="col- grid gap-8 py-4">
         {
             results.map((result) => {
                 return (
@@ -95,10 +99,10 @@ const formatter = new Intl.DateTimeFormat("no-nb", {
                     >
                         <dt class="font-bold">{result.name}</dt>
                         <dd class="flex place-content-end font-semibold text-green-700 not-group-data-[status='200']:text-red-600">
-                            <span>{result.health.status}</span>
+                            <a href={result.health.endpoint}>{result.health.status}</a>
                         </dd>
                         <dd class="col-span-full">
-                            Git: <span>{result.git}</span>
+                            Git: <a href={result.git.endpoint}>{result.git.text}</a>
                         </dd>
                         <dd class="col-span-full">
                             Checked: <span>{formatter.format(result.datetime)}</span>
