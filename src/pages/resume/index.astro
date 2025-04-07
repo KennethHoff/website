@@ -1,0 +1,78 @@
+---
+import Layout from "@/components/layouts/Layout.astro";
+---
+
+<Layout metadata={{
+    title: "My Resumé | Kenneth Hoff",
+    description: "A quick-and-dirty resumé written in English"
+}}>
+    <header class="col-breakout h-12 flex place-content-between items-center bg-stone-400 px-4" slot="header">
+        <a href="/" class="text-primary">&lt;KC&gt;</a>
+        <p class="italic">Quick-and-dirty resumé // 🇳🇴 Norwegian version coming soon</p>
+    </header>
+    <dl class="col-content prose">
+        <div>
+            <dt class="text-2xl">Helgeland Kraft - Website</dt>
+            <dd>2025 - today</dd>
+            <dd>Full-stack developer</dd>
+            <dd>Primary responsibility for developing and maintaining integrations with internal and external systems</dd>
+            <dd>Heavily based upon a prior project colloquially called "Tensio/Linea"</dd>
+            <dl>
+                <dt>Most important technologies</dt>
+                <dd>Nextjs</dd>
+                <dd>TypeScript</dd>
+                <dd>Microsoft Azure</dd>
+                <dd>ASP.Net Core</dd>
+                <dd>Sanity CMS</dd>
+            </dl>
+        </div>
+        <div>
+            <dt class="text-2xl">Tensio/Linea - Website and Web portal</dt>
+            <dd>2023 - today</dd>
+            <dd>Full-stack developer</dd>
+            <dd>Primary responsibility for developing and maintaining integrations with internal and external systems</dd>
+            <dl>
+                <dt>Most important technologies</dt>
+                <dd>C#</dd>
+                <dd>Microsoft Azure</dd>
+                <dd>ASP.Net Core</dd>
+                <dd>Nextjs</dd>
+                <dd>TypeScript</dd>
+                <dd>Sanity CMS</dd>
+                <dd>Redis</dd>
+            </dl>
+        </div>
+        <div>
+            <dt class="text-2xl">Human-Etisk Forbund - "Konfirmasjon" sign-up form</dt>
+            <dd>2022 - 2023</dd>
+            <dd>Full-stack developer</dd>
+            <dd>Integrating with third-party system</dd>
+            <dd>Creating a conditional multi-step form</dd>
+            <dd>Huge traffic at the start of May</dd>
+            <dl>
+                <dt>Most important technologies</dt>
+                <dd>VueJS</dd>
+                <dd>TailwindCSS</dd>
+                <dd>TypeScript</dd>
+                <dd>C#</dd>
+                <dd>ASP.Net Core</dd>
+                <dd>Entity Framework Core</dd>
+            </dl>
+        </div>
+        <div>
+            <dt class="text-2xl">Human-Etisk Forbund - internal system for managing ceremonies</dt>
+            <dd>2021 - 2023</dd>
+            <dd>Full-stack developer</dd>
+            <dl>
+                <dt>Most important technologies</dt>
+                <dd>C#</dd>
+                <dd>ASP.Net Core</dd>
+                <dd>Entity Framework Core</dd>
+                <dd>VueJS</dd>
+                <dd>TypeScript</dd>
+                <dd>TailwindCSS</dd>
+                <dd>KnockoutJS</dd>
+            </dl>
+        </div>
+    </dl>
+</Layout>
