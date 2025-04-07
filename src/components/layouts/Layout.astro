@@ -23,7 +23,10 @@ const {
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content="light" name="color-scheme"/>
-        {description && <meta content={description} name="description" />}
+        {description && (
+            <meta content={description} name="description" />
+            <meta property="og:description" content={description}/>
+        )}
         <slot name="head-meta" />
 
         <slot name="head-end" />
