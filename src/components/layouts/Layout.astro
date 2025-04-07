@@ -5,13 +5,13 @@ import "src/global.css";
 interface Props {
     metadata: {
         title: string;
-        description?: string | undefined;
+        description?: string;
+        image?: string;
+        site_name?: string;
     };
 }
 
-const {
-    metadata: { title, description },
-} = Astro.props;
+const { metadata } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,15 +19,16 @@ const {
         <slot name="head-start" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <link href="/sitemap-index.xml" rel="sitemap" />
-        <title>{title}</title>
-        <meta property="og:title" content={title}/>
-        <meta property="og:site_name" content="Kenny's Corner"/>
+        <title>{metadata.title}</title>
+        <meta property="og:title" content={metadata.title}/>
+        <meta property="og:site_name" content=`${metadata.site_name ?? "Kenny's Corner"}`/>
+        {metadata.image && <meta property="og:image" content={metadata.image}/>}
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content="light" name="color-scheme"/>
-        {description && (
-            <meta content={description} name="description" />
-            <meta property="og:description" content={description}/>
+        {metadata.description && (
+            <meta content={metadata.description} name="description" />
+            <meta property="og:description" content={metadata.description}/>
         )}
         <slot name="head-meta" />
 
