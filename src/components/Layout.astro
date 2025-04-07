@@ -5,7 +5,7 @@ import "src/global.css";
 interface Props {
     metadata: {
         title: string;
-        description?: string;
+        description?: string | undefined;
         image?: string;
         site_name?: string;
     };
@@ -50,9 +50,7 @@ const { metadata } = Astro.props;
                 <a href="/" class="text-primary">&lt;KC&gt;</a>
             </header>
         </slot>
-        <main class="col-breakout grid grid-cols-subgrid">
-            <slot />
-        </main>
+        <slot />
         <slot name="footer">
             <footer class="col-breakout grid h-12 content-center justify-items-end bg-stone-400 px-4">
                     <pre class="text-primary">&lt;KC&#47;&gt;</pre>

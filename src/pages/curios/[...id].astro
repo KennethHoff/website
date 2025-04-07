@@ -1,5 +1,5 @@
 ---
-import Layout from "@/components/layouts/Layout.astro";
+import Layout from "@/components/Layout.astro";
 import Time from "@/components/Time.astro";
 import { Schema } from "astro-seo-schema";
 import { getCollection, render } from "astro:content";
@@ -26,16 +26,18 @@ const { Content } = await render(post);
     <meta slot="head-meta" content={post.data.author} name="author"/>
     <Schema slot="head-meta" item={post.data.structuredData} />
 
-    <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
-        <h1 class="text-5xl">{post.data.title}</h1>
-        <dl class="not-prose">
-            <dt class="inline">Created</dt>
-            <dd class="inline"><Time datetime={post.data.created}/></dd>
-            {post.data.modified && (
-                <dt class="inline">Updated</dt>
-                <dd class="inline"><Time datetime={post.data.modified}/></dd>
-            )}
-        </dl>
-        <Content />
-    </article>
+    <main class="col-breakout grid grid-cols-subgrid">
+        <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
+            <h1 class="text-5xl">{post.data.title}</h1>
+            <dl class="not-prose">
+                <dt class="inline">Created</dt>
+                <dd class="inline"><Time datetime={post.data.created}/></dd>
+                {post.data.modified && (
+                    <dt class="inline">Updated</dt>
+                    <dd class="inline"><Time datetime={post.data.modified}/></dd>
+                )}
+            </dl>
+            <Content />
+        </article>
+    </main>
 </Layout>

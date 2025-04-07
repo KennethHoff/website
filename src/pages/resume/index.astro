@@ -1,5 +1,5 @@
 ---
-import Layout from "@/components/layouts/Layout.astro";
+import Layout from "@/components/Layout.astro";
 ---
 
 <Layout metadata={{
@@ -7,73 +7,124 @@ import Layout from "@/components/layouts/Layout.astro";
     description: "A quick-and-dirty resumé written in English",
     image: "/profile.jpg"
 }}>
-    <header class="col-breakout h-12 flex place-content-between items-center bg-stone-400 px-4" slot="header">
+    <header slot="header" class="col-breakout flex h-12 place-content-between items-center bg-stone-400 px-4" >
         <a href="/" class="text-primary">&lt;KC&gt;</a>
         <p class="italic">Quick-and-dirty resumé // 🇳🇴 Norwegian version coming soon</p>
     </header>
-    <dl class="col-content prose">
-        <div>
-            <dt class="text-2xl">Helgeland Kraft - Website</dt>
-            <dd>2025 - today</dd>
-            <dd>Full-stack developer</dd>
-            <dd>Primary responsibility for developing and maintaining integrations with internal and external systems</dd>
-            <dd>Heavily based upon a prior project colloquially called "Tensio/Linea"</dd>
+
+    <main class="col-content prose py-4">
+        <h1>My Resumé</h1>
+
+        <article aria-labelledby="job-helgeland" itemscope itemtype="https://schema.org/EmployeeRole">
+            <h2 id="job-helgeland" class="text-2xl">Helgeland Kraft - Website</h2>
+
+            <p>
+                <span>
+                    <strong>Dates:</strong>
+                    <time datetime="2025" itemprop="startDate">2025</time> - today
+                </span>
+                <br>
+                <span>
+                    <strong>Role:</strong>
+                    <span itemprop="roleName">Full-stack developer</span>
+                </span>
+            </p>
+            <ul itemprop="description">
+                <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
+                <li>Heavily based upon a prior project colloquially called "Tensio/Linea"</li>
+            </ul>
             <dl>
-                <dt>Most important technologies</dt>
-                <dd>Nextjs</dd>
-                <dd>TypeScript</dd>
-                <dd>Microsoft Azure</dd>
-                <dd>ASP.Net Core</dd>
-                <dd>Sanity CMS</dd>
+                <dt>Core technologies</dt>
+                <dd itemprop="skills">Nextjs</dd>
+                <dd itemprop="skills">TypeScript</dd>
+                <dd itemprop="skills">Sanity CMS</dd>
+                <dd itemprop="skills">Microsoft Azure</dd>
+                <dd itemprop="skills">ASP.Net Core</dd>
             </dl>
-        </div>
-        <div>
-            <dt class="text-2xl">Tensio/Linea - Website and Web portal</dt>
-            <dd>2023 - today</dd>
-            <dd>Full-stack developer</dd>
-            <dd>Primary responsibility for developing and maintaining integrations with internal and external systems</dd>
+        </article>
+
+        <article aria-labelledby="job-tensio" itemscope itemtype="https://schema.org/EmployeeRole">
+            <h2 id="job-tensio" class="text-2xl">Tensio/Linea - Website and Web portal</h2>
+
+            <p>
+                <span>
+                    <strong>Dates:</strong>
+                    <time datetime="2023" itemprop="startDate">2023</time> - today
+                </span>
+                <br>
+                <span>
+                    <strong>Role:</strong>
+                    <span itemprop="roleName">Full-stack developer</span>
+                </span>
+            </p>
+            <ul itemprop="description">
+                <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
+            </ul>
             <dl>
-                <dt>Most important technologies</dt>
-                <dd>C#</dd>
-                <dd>Microsoft Azure</dd>
-                <dd>ASP.Net Core</dd>
-                <dd>Nextjs</dd>
-                <dd>TypeScript</dd>
-                <dd>Sanity CMS</dd>
-                <dd>Redis</dd>
+                <dt>Core technologies</dt>
+                <dd itemprop="skills">C#</dd>
+                <dd itemprop="skills">Microsoft Azure</dd>
+                <dd itemprop="skills">ASP.Net Core</dd>
+                <dd itemprop="skills">Nextjs</dd>
+                <dd itemprop="skills">TypeScript</dd>
+                <dd itemprop="skills">Sanity CMS</dd>
+                <dd itemprop="skills">Redis</dd>
             </dl>
-        </div>
-        <div>
-            <dt class="text-2xl">Human-Etisk Forbund - "Konfirmasjon" sign-up form</dt>
-            <dd>2022 - 2023</dd>
-            <dd>Full-stack developer</dd>
-            <dd>Integrating with third-party system</dd>
-            <dd>Creating a conditional multi-step form</dd>
-            <dd>Huge traffic at the start of May</dd>
+        </article>
+
+        <article aria-labelledby="job-hef-konfirmasjon" itemscope itemtype="https://schema.org/EmployeeRole">
+            <h2 id="job-hef-konfirmasjon" class="text-2xl">Human-Etisk Forbund - "Konfirmasjon" sign-up form</h2>
+
+            <p>
+                <span>
+                    <strong>Dates:</strong>
+                    <time datetime="2022" itemprop="startDate">2022</time> - <time datetime="2023" itemprop="endDate">2023</time>
+                </span>
+                <br>
+                <span>
+                    <strong>Role:</strong>
+                    <span itemprop="roleName">Full-stack developer</span>
+                </span>
+            </p>
+            <ul itemprop="description">
+                <li>Integrating with third-party system</li>
+                <li>Creating a conditional multi-step form</li>
+                <li>Huge traffic at the start of May</li>
+            </ul>
             <dl>
-                <dt>Most important technologies</dt>
-                <dd>VueJS</dd>
-                <dd>TailwindCSS</dd>
-                <dd>TypeScript</dd>
-                <dd>C#</dd>
-                <dd>ASP.Net Core</dd>
-                <dd>Entity Framework Core</dd>
+                <dt>Core technologies</dt>
+                <dd itemprop="skills">VueJS</dd>
+                <dd itemprop="skills">TailwindCSS</dd>
+                <dd itemprop="skills">TypeScript</dd>
+                <dd itemprop="skills">C#</dd>
+                <dd itemprop="skills">ASP.Net Core</dd>
+                <dd itemprop="skills">Entity Framework Core</dd>
             </dl>
-        </div>
-        <div>
-            <dt class="text-2xl">Human-Etisk Forbund - internal system for managing ceremonies</dt>
-            <dd>2021 - 2023</dd>
-            <dd>Full-stack developer</dd>
+        </article>
+
+        <article aria-labelledby="job-hef-internal" itemscope itemtype="https://schema.org/EmployeeRole">
+            <h2 id="job-hef-internal" class="text-2xl">Human-Etisk Forbund - internal system for managing ceremonies</h2>
+
+            <p>
+                <span>
+                    <strong>Dates:</strong>
+                    <time datetime="2021" itemprop="startDate">2021</time> - <time datetime="2023" itemprop="endDate">2023</time>
+                </span>
+                <br>
+                <span>
+                    <strong>Role:</strong>
+                    <span itemprop="roleName">Full-stack developer</span>
+                </span>
+            </p>
             <dl>
-                <dt>Most important technologies</dt>
-                <dd>C#</dd>
-                <dd>ASP.Net Core</dd>
-                <dd>Entity Framework Core</dd>
-                <dd>VueJS</dd>
-                <dd>TypeScript</dd>
-                <dd>TailwindCSS</dd>
-                <dd>KnockoutJS</dd>
+                <dt>Core technologies</dt>
+                <dd itemprop="skills">C#</dd>
+                <dd itemprop="skills">Entity Framework Core</dd>
+                <dd itemprop="skills">ASP.Net Core</dd>
+                <dd itemprop="skills">TypeScript</dd>
+                <dd itemprop="skills">KnockoutJS</dd>
             </dl>
-        </div>
-    </dl>
+        </article>
+
+    </main>
 </Layout>
