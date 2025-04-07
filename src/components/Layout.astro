@@ -1,5 +1,6 @@
 ---
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 import "src/global.css";
 
 interface Props {
@@ -27,16 +28,16 @@ const { metadata } = Astro.props;
         <meta property="og:site_name" content=`${metadata.site_name ?? "Kenny's Corner"}`/>
         <meta property="twitter:card" content="summary"/>
         {metadata.image && (
-            <meta property="og:image" content={metadata.image}/>
-            <meta property="twitter:image" content={metadata.image}/>
+        <meta property="og:image" content={metadata.image}/>
+        <meta property="twitter:image" content={metadata.image}/>
         )}
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content="light" name="color-scheme"/>
         {metadata.description && (
-            <meta content={metadata.description} name="description" />
-            <meta property="og:description" content={metadata.description}/>
-            <meta property="twitter:description" content={metadata.description}/>
+        <meta content={metadata.description} name="description" />
+        <meta property="og:description" content={metadata.description}/>
+        <meta property="twitter:description" content={metadata.description}/>
         )}
         <slot name="head-meta" />
 
@@ -53,9 +54,10 @@ const { metadata } = Astro.props;
         <slot />
         <slot name="footer">
             <footer class="col-breakout grid h-12 content-center justify-items-end bg-stone-400 px-4">
-                    <pre class="text-primary">&lt;KC&#47;&gt;</pre>
+                <pre class="text-primary">&lt;KC&#47;&gt;</pre>
             </footer>
         </slot>
         <SpeedInsights />
+        <Analytics />
     </body>
 </html>
