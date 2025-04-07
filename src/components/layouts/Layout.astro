@@ -21,14 +21,20 @@ const { metadata } = Astro.props;
         <link href="/sitemap-index.xml" rel="sitemap" />
         <title>{metadata.title}</title>
         <meta property="og:title" content={metadata.title}/>
+        <meta property="twitter:title" content={metadata.title}/>
         <meta property="og:site_name" content=`${metadata.site_name ?? "Kenny's Corner"}`/>
-        {metadata.image && <meta property="og:image" content={metadata.image}/>}
+        <meta property="twitter:card" content="summary"/>
+        {metadata.image && (
+            <meta property="og:image" content={metadata.image}/>
+            <meta property="twitter:image" content={metadata.image}/>
+        )}
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content="light" name="color-scheme"/>
         {metadata.description && (
             <meta content={metadata.description} name="description" />
             <meta property="og:description" content={metadata.description}/>
+            <meta property="twitter:description" content={metadata.description}/>
         )}
         <slot name="head-meta" />
 
