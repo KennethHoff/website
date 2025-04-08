@@ -15,14 +15,8 @@
     "erasableSyntaxOnly": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "./src/components/*"
-      ],
-      "@/icons/*": [
-        "src/icons/*"
-      ],
-      "@/functions": [
-        "./src/functions/index.ts"
+      "@/*": [
+        "./src/*"
       ]
     }
   }
