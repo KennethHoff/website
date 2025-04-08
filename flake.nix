@@ -24,7 +24,6 @@
             ]
             ++ (with pkgs.nodePackages; [
               pnpm_10
-              typescript
               vercel
             ]);
         };

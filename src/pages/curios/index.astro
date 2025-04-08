@@ -1,16 +1,12 @@
 ---
 import Layout from "@/components/Layout.astro"
 import CuriosList from "@/components/CuriosList.astro"
-import RssFeedIcon from "@/icons/RssFeedIcon.astro";
 ---
 
-<Layout metadata={{
+<Layout seo={{
     title: "Kenny's Curios | Kenny's Corner",
+    canonical: Astro.url,
 }}>
-    <footer slot="footer" class="col-breakout grid h-12 grid-cols-subgrid items-center bg-stone-400 px-4">
-        <a href="/curios/rss.xml" title="Open RSS Feed"><RssFeedIcon /></a>
-        <pre class="text-primary col-[-1]">&lt;KC&#47;&gt;</pre>
-    </footer>
     <main class="col-content prose py-4">
         <CuriosList class="col-content"/>
     </main>

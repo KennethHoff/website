@@ -1,10 +1,13 @@
 ---
 import Layout from "@/components/Layout.astro";
+
+const title = "Kenny's Corner";
 ---
 
 <Layout
-    metadata={{
-        title: "Kenny's Corner",
+    seo={{
+        title: title,
+        canonical: Astro.url,
     }}
 >
     <main class="col-content prose py-4">

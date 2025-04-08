@@ -5,6 +5,8 @@ import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
+import react from "@astrojs/react";
+
 const siteUrl =
         // If Production, use production URL
         process.env.VERCEL_ENV == "production"
@@ -20,7 +22,7 @@ export default defineConfig({
         vite: {
                 plugins: [tailwindcss()],
         },
-        integrations: [sitemap()],
+        integrations: [sitemap(), react()],
         adapter: vercel(),
         trailingSlash: "never",
 });

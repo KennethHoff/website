@@ -3,6 +3,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
 import "src/global.css";
 import { SEO, type SEOProps } from "astro-seo";
+import { CuriosRssFeedLink, ResumeLink } from "@/components/Links.tsx";
 
 interface Props {
     seo: SEOProps;
@@ -36,7 +37,11 @@ interface Props {
         </slot>
         <slot />
         <slot name="footer">
-            <footer class="col-breakout grid h-12 content-center justify-items-end bg-stone-400 px-4">
+            <footer class="col-breakout flex h-12 items-center place-content-between bg-stone-400 px-4">
+                <div class="flex flex-row gap-2">
+                    <ResumeLink client:visible />
+                    <CuriosRssFeedLink client:visible />
+                </div>
                 <pre class="text-primary">&lt;KC&#47;&gt;</pre>
             </footer>
         </slot>
