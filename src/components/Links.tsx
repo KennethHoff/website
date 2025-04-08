@@ -10,7 +10,7 @@ export function ResumeLink() {
                         <FileUser aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>Go to Resumé</TooltipContent>
+                <TooltipContent>Kenneth Hoff's resumé</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
@@ -25,7 +25,7 @@ export function CuriosRssFeedLink() {
                         <RssIcon aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>Open RSS Feed for Kenny's Curios</TooltipContent>
+                <TooltipContent>RSS Feed for Kenny's Curios</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
