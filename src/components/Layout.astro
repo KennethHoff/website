@@ -2,17 +2,12 @@
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
 import "src/global.css";
+import { SEO, type SEOProps } from "astro-seo";
 
 interface Props {
-    metadata: {
-        title: string;
-        description?: string | undefined;
-        image?: string;
-        site_name?: string;
-    };
+    seo: SEOProps;
 }
 
-const { metadata } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,25 +15,13 @@ const { metadata } = Astro.props;
         <slot name="head-start" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <link href="/sitemap-index.xml" rel="sitemap" />
-        <title>{metadata.title}</title>
-        <meta property="og:title" content={metadata.title}/>
-        <meta property="twitter:title" content={metadata.title}/>
-        <link href={Astro.url} rel="canonical" />
-        <meta property="og:url" content={Astro.url}/>
-        <meta property="og:site_name" content=`${metadata.site_name ?? "Kenny's Corner"}`/>
-        <meta property="twitter:card" content="summary"/>
-        {metadata.image && (
-        <meta property="og:image" content={metadata.image}/>
-        <meta property="twitter:image" content={metadata.image}/>
-        )}
+
         <meta charset="utf-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content="light" name="color-scheme"/>
-        {metadata.description && (
-        <meta content={metadata.description} name="description" />
-        <meta property="og:description" content={metadata.description}/>
-        <meta property="twitter:description" content={metadata.description}/>
-        )}
+
+        <SEO {...Astro.props.seo} />
+
         <slot name="head-meta" />
 
         <slot name="head-end" />

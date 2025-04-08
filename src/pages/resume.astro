@@ -1,11 +1,40 @@
 ---
 import Layout from "@/components/Layout.astro";
+const title = "My Resumé | Kenneth Hoff";
+const description = "A quick-and-dirty resumé written in English";
 ---
 
-<Layout metadata={{
-    title: "My Resumé | Kenneth Hoff",
-    description: "A quick-and-dirty resumé written in English",
-    image: "/profile.jpg"
+<Layout seo={{
+    title: title,
+    description: description,
+    openGraph: {
+        basic: {
+            title: title,
+            type: 'profile',
+            image: "/profile.jpg",
+            url: Astro.url,
+        },
+        article: {
+            authors: ["Kenneth Hoff"],
+            modifiedTime: "2025-04-08",
+        },
+        image: {
+            url: "/profile.jpg",
+            type: "bla"
+        },
+        optional: {
+            siteName: "Kenny's Corner",
+            description: description,
+        },
+    },
+    canonical: Astro.url,
+    twitter: {
+        title: title,
+        description: description,
+        card: "summary",
+        creator: "Kenneth Hoff",
+        image: "/profile.jpg",
+    },
 }}>
     <header slot="header" class="col-breakout flex h-12 place-content-between items-center bg-stone-400 px-4" >
         <a href="/" class="text-primary">&lt;KC&gt;</a>
@@ -15,13 +44,15 @@ import Layout from "@/components/Layout.astro";
     <main class="col-content prose py-4">
         <h1>My Resumé</h1>
 
-        <article aria-labelledby="job-helgeland" itemscope itemtype="https://schema.org/EmployeeRole">
-            <h2 id="job-helgeland" class="text-2xl">Helgeland Kraft - Website</h2>
+        <article aria-labelledby="job-current-employer" itemscope itemtype="https://schema.org/EmployeeRole">
+            <div itemprop="employer" itemscope itemtype="https://schema.org/Organization">
+                <h2 id="job-current-employer" itemprop="name">OXX</h2>
+            </div>
 
             <p>
                 <span>
                     <strong>Dates:</strong>
-                    <time datetime="2025" itemprop="startDate">2025</time> - today
+                    <time datetime="2021" itemprop="startDate">2021</time> - today
                 </span>
                 <br>
                 <span>
@@ -29,101 +60,72 @@ import Layout from "@/components/Layout.astro";
                     <span itemprop="roleName">Full-stack developer</span>
                 </span>
             </p>
-            <ul itemprop="description">
-                <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
-                <li>Heavily based upon a prior project colloquially called "Tensio/Linea"</li>
-            </ul>
-            <dl>
-                <dt>Core technologies</dt>
-                <dd itemprop="skills">Nextjs</dd>
-                <dd itemprop="skills">TypeScript</dd>
-                <dd itemprop="skills">Sanity CMS</dd>
-                <dd itemprop="skills">Microsoft Azure</dd>
-                <dd itemprop="skills">ASP.Net Core</dd>
-            </dl>
-        </article>
 
-        <article aria-labelledby="job-tensio" itemscope itemtype="https://schema.org/EmployeeRole">
-            <h2 id="job-tensio" class="text-2xl">Tensio/Linea - Website and Web portal</h2>
+            <h3 class="mt-4 border-t pt-4">Key Projects</h3>
 
-            <p>
-                <span>
-                    <strong>Dates:</strong>
-                    <time datetime="2023" itemprop="startDate">2023</time> - today
-                </span>
-                <br>
-                <span>
-                    <strong>Role:</strong>
-                    <span itemprop="roleName">Full-stack developer</span>
-                </span>
-            </p>
-            <ul itemprop="description">
-                <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
-            </ul>
-            <dl>
-                <dt>Core technologies</dt>
-                <dd itemprop="skills">C#</dd>
-                <dd itemprop="skills">Microsoft Azure</dd>
-                <dd itemprop="skills">ASP.Net Core</dd>
-                <dd itemprop="skills">Nextjs</dd>
-                <dd itemprop="skills">TypeScript</dd>
-                <dd itemprop="skills">Sanity CMS</dd>
-                <dd itemprop="skills">Redis</dd>
-            </dl>
-        </article>
+            <section class="mt-2 mb-4" aria-labelledby="project-helgeland" itemscope itemtype="https://schema.org/CreativeWork">
+                <h4 id="project-helgeland" class="text-xl font-semibold" itemprop="name">Helgeland Kraft - Website</h4>
+                <ul itemprop="description">
+                    <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
+                    <li>Heavily based upon a prior project colloquially called "Tensio/Linea"</li>
+                </ul>
+                <dl>
+                    <dt>Core technologies</dt>
+                    <dd itemprop="keywords">Nextjs</dd>
+                    <dd itemprop="keywords">TypeScript</dd>
+                    <dd itemprop="keywords">Sanity CMS</dd>
+                    <dd itemprop="keywords">Microsoft Azure</dd>
+                    <dd itemprop="keywords">ASP.Net Core</dd>
+                </dl>
+            </section>
 
-        <article aria-labelledby="job-hef-konfirmasjon" itemscope itemtype="https://schema.org/EmployeeRole">
-            <h2 id="job-hef-konfirmasjon" class="text-2xl">Human-Etisk Forbund - "Konfirmasjon" sign-up form</h2>
+            <section class="mt-2 mb-4" aria-labelledby="project-tensio" itemscope itemtype="https://schema.org/CreativeWork">
+                <h4 id="project-tensio" class="text-xl font-semibold" itemprop="name">Tensio/Linea - Website and Web portal</h4>
+                <ul itemprop="description">
+                    <li>Primary responsibility for developing and maintaining integrations with internal and external systems</li>
+                </ul>
+                <dl>
+                    <dt>Core technologies</dt>
+                    <dd itemprop="keywords">C#</dd>
+                    <dd itemprop="keywords">Microsoft Azure</dd>
+                    <dd itemprop="keywords">ASP.Net Core</dd>
+                    <dd itemprop="keywords">Nextjs</dd>
+                    <dd itemprop="keywords">TypeScript</dd>
+                    <dd itemprop="keywords">Sanity CMS</dd>
+                    <dd itemprop="keywords">Redis</dd>
+                </dl>
+            </section>
 
-            <p>
-                <span>
-                    <strong>Dates:</strong>
-                    <time datetime="2022" itemprop="startDate">2022</time> - <time datetime="2023" itemprop="endDate">2023</time>
-                </span>
-                <br>
-                <span>
-                    <strong>Role:</strong>
-                    <span itemprop="roleName">Full-stack developer</span>
-                </span>
-            </p>
-            <ul itemprop="description">
-                <li>Integrating with third-party system</li>
-                <li>Creating a conditional multi-step form</li>
-                <li>Huge traffic at the start of May</li>
-            </ul>
-            <dl>
-                <dt>Core technologies</dt>
-                <dd itemprop="skills">VueJS</dd>
-                <dd itemprop="skills">TailwindCSS</dd>
-                <dd itemprop="skills">TypeScript</dd>
-                <dd itemprop="skills">C#</dd>
-                <dd itemprop="skills">ASP.Net Core</dd>
-                <dd itemprop="skills">Entity Framework Core</dd>
-            </dl>
-        </article>
+            <section class="mt-2 mb-4" aria-labelledby="project-hef-konfirmasjon" itemscope itemtype="https://schema.org/CreativeWork">
+                <h4 id="project-hef-konfirmasjon" class="text-xl font-semibold" itemprop="name">Human-Etisk Forbund - "Konfirmasjon" sign-up form</h4>
+                <ul itemprop="description">
+                    <li>Integrating with third-party system</li>
+                    <li>Creating a conditional multi-step form</li>
+                    <li>Huge traffic at the start of May</li>
+                </ul>
+                <dl>
+                    <dt>Core technologies</dt>
+                    <dd itemprop="keywords">VueJS</dd>
+                    <dd itemprop="keywords">TailwindCSS</dd>
+                    <dd itemprop="keywords">TypeScript</dd>
+                    <dd itemprop="keywords">C#</dd>
+                    <dd itemprop="keywords">ASP.Net Core</dd>
+                    <dd itemprop="keywords">Entity Framework Core</dd>
+                </dl>
+            </section>
 
-        <article aria-labelledby="job-hef-internal" itemscope itemtype="https://schema.org/EmployeeRole">
-            <h2 id="job-hef-internal" class="text-2xl">Human-Etisk Forbund - internal system for managing ceremonies</h2>
+            <section class="mt-2 mb-4" aria-labelledby="project-hef-internal" itemscope itemtype="https://schema.org/CreativeWork">
+                <h4 id="project-hef-internal" class="text-xl font-semibold" itemprop="name">Human-Etisk Forbund - internal system for managing ceremonies</h4>
+                <dl>
+                    <dt>Core technologies</dt>
+                    <dd itemprop="keywords">C#</dd>
+                    <dd itemprop="keywords">Entity Framework Core</dd>
+                    <dd itemprop="keywords">ASP.Net Core</dd>
+                    <dd itemprop="keywords">TypeScript</dd>
+                    <dd itemprop="keywords">KnockoutJS</dd>
+                </dl>
+            </article>
 
-            <p>
-                <span>
-                    <strong>Dates:</strong>
-                    <time datetime="2021" itemprop="startDate">2021</time> - <time datetime="2023" itemprop="endDate">2023</time>
-                </span>
-                <br>
-                <span>
-                    <strong>Role:</strong>
-                    <span itemprop="roleName">Full-stack developer</span>
-                </span>
-            </p>
-            <dl>
-                <dt>Core technologies</dt>
-                <dd itemprop="skills">C#</dd>
-                <dd itemprop="skills">Entity Framework Core</dd>
-                <dd itemprop="skills">ASP.Net Core</dd>
-                <dd itemprop="skills">TypeScript</dd>
-                <dd itemprop="skills">KnockoutJS</dd>
-            </dl>
         </article>
 
     </main>
