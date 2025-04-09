@@ -1,4 +1,4 @@
-import { FileUser, RssIcon } from "lucide-react";
+import { FileUser, GithubIcon, RssIcon } from "lucide-react";
 import { TooltipProvider, TooltipTrigger, Tooltip, TooltipContent } from "./ui/tooltip";
 
 export function ResumeLink() {
@@ -26,6 +26,21 @@ export function CuriosRssFeedLink() {
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>RSS Feed for Kenny's Curios</TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
+}
+
+export function GithubLink() {
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <a href="https://github.com/kennethhoff/kennyscorner" aria-label="The GitHub repository for this website">
+                        <GithubIcon aria-hidden />
+                    </a>
+                </TooltipTrigger>
+                <TooltipContent>The GitHub repository for this website</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
