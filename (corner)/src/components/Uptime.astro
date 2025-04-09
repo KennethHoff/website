@@ -1,0 +1,42 @@
+---
+type Props = {
+    name: string;
+    health: URL;
+    git: URL;
+}
+
+const [health, git] = await Promise.all([
+    fetch(Astro.props.health).then(async (x) => ({
+        text: await x.text(),
+        status: x.status,
+    })),
+    fetch(Astro.props.git).then(async (x) => ({
+        text: await x.text(),
+    })),
+]);
+
+const formatter = new Intl.DateTimeFormat("no-nb", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+});
+---
+
+<dl
+    class="group grid w-max grid-cols-2 rounded-2xl bg-neutral-300 p-4"
+    data-status={health.status}
+>
+    <dt class="font-bold">{Astro.props.name}</dt>
+    <dd class="flex place-content-end font-semibold text-green-700 not-group-data-[status='200']:text-red-600">
+        <a href={Astro.props.health}>{health.status}</a>
+    </dd>
+    <dd class="col-span-full">
+        Git: <a href={Astro.props.git}>{git.text}</a>
+    </dd>
+    <dd class="col-span-full">
+        Checked: <span>{formatter.format(new Date())}</span>
+    </dd>
+</dl>
