@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from "astro:content";
+import { Schema } from "astro-seo-schema";
+import Layout from "@/components/Layout.astro";
+import Time from "@/components/Time.astro";
+
+export async function getStaticPaths() {
+    const articles = await getCollection("articles");
+    return articles.map((article) => ({
+        params: { id: article.id },
+        props: { post: article },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+    seo={{
+        title: post.data.title,
+        canonical: Astro.url,
+    }}
+>
+    <meta slot="head-meta" content={post.data.author} name="author"/>
+    <Schema slot="head-meta" item={post.data.structuredData} />
+
+    <main class="col-breakout grid grid-cols-subgrid">
+        <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
+            <h1 class="text-5xl">{post.data.title}</h1>
+            <dl class="not-prose">
+                <dt class="inline">Created</dt>
+                <dd class="inline"><Time datetime={post.data.created}/></dd>
+                {post.data.modified && (
+                <dt class="inline">Updated</dt>
+                <dd class="inline"><Time datetime={post.data.modified}/></dd>
+                )}
+            </dl>
+            <Content />
+        </article>
+    </main>
+</Layout>
