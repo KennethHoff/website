@@ -1,0 +1,60 @@
+---
+export const prerender = false;
+
+import Layout from "@/components/Layout.astro";
+import Uptime from "@/components/Uptime.astro";
+---
+
+<Layout
+    seo={{
+        title: "Uptime",
+    }}
+>
+    <div class="grid gap-8 py-4">
+        <Uptime 
+            name="Helgeland Kraft - Test" 
+            health="https://helgeland-test-bff-open.azurewebsites.net/health"
+            git="https://helgeland-test-bff-open.azurewebsites.net/__git-info"
+        />
+        <Uptime 
+            name="Linea - Test" 
+            health="https://api-www-test.linea.no/health"
+            git="https://api-www-test.linea.no/__git-info"
+        />
+        <Uptime
+            name="Tensio - Test"
+            health="https://api-www-test.tensio.no/health"
+            git="https://api-www-test.tensio.no/__git-info"
+        />
+        <Uptime
+            name="Linea - Prod"
+            health="https://api-www.linea.no/health"
+            git="https://api-www.linea.no/__git-info"
+        />
+        <Uptime
+            name="Tensio - Prod"
+            health="https://api-www.tensio.no/health"
+            git="https://api-www.tensio.no/__git-info"
+        />
+        <Uptime
+            name="MS | Linea - Test"
+            health="https://api-minesaker-test.linea.no/health"
+            git="https://api-minesaker-test.linea.no/__git-info"
+        />
+        <Uptime
+            name="MS | Tensio - Test"
+            health="https://api-minesaker-test.tensio.no/health"
+            git="https://api-minesaker-test.tensio.no/__git-info"
+        />
+        <Uptime
+            name="MS | Linea - Prod"
+            health="https://api-minesaker.linea.no/health"
+            git="https://api-minesaker.linea.no/__git-info"
+        />
+        <Uptime
+            name="MS | Tensio - Prod"
+            health="https://api-minesaker.tensio.no/health"
+            git="https://api-minesaker.tensio.no/__git-info"
+        />
+    </div>
+</Layout>
