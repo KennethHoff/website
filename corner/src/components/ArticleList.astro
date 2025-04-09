@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 interface Props {
     class?: string;
@@ -9,7 +9,7 @@ const articles = await getCollection("articles");
 ---
 
 <ol class:list={[Astro.props.class]}>
-    {articles.map(article => {
+    {articles.map(( article ) => {
             return (
                 <li class="has-aria-[current='page']:text-blue-300">
                     <a

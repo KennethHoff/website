@@ -1,5 +1,10 @@
 import { FileUser, GithubIcon, RssIcon } from "lucide-react";
-import { TooltipProvider, TooltipTrigger, Tooltip, TooltipContent } from "./ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "./ui/tooltip";
 
 export function ResumeLink() {
     return (
@@ -36,11 +41,16 @@ export function GithubLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="https://github.com/kennethhoff/website" aria-label="The GitHub repository for this website">
+                    <a
+                        href="https://github.com/kennethhoff/website"
+                        aria-label="The GitHub repository for this website"
+                    >
                         <GithubIcon aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>The GitHub repository for this website</TooltipContent>
+                <TooltipContent>
+                    The GitHub repository for this website
+                </TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );

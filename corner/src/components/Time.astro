@@ -1,13 +1,14 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-type Props = Omit<HTMLAttributes<'a'>, 'datetime'> & {
+import type { HTMLAttributes } from "astro/types";
+
+type Props = Omit<HTMLAttributes<"a">, "datetime"> & {
     datetime: Date;
-}
+};
 
 const { datetime, ...spreadable } = Astro.props;
 
-const dateTimeFormat = new Intl.DateTimeFormat('en-GB', {
-    dateStyle: 'full',
+const dateTimeFormat = new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "full",
 });
 ---
 
