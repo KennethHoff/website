@@ -3,7 +3,12 @@ import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import "src/global.css";
 import { SEO, type SEOProps } from "astro-seo";
-import { GithubLink, ResumeLink, RssFeedLink } from "@/components/Links.tsx";
+import {
+    CornerExitLink,
+    GithubLink,
+    ResumeLink,
+    RssFeedLink,
+} from "@/components/Links.tsx";
 
 interface Props {
     seo: SEOProps;
@@ -42,7 +47,7 @@ interface Props {
                     <GithubLink client:visible />
                     <RssFeedLink client:visible />
                 </div>
-                <pre class="text-primary">&lt;&#47;KC&gt;</pre>
+                <CornerExitLink client:visible />
             </footer>
         </slot>
         <SpeedInsights />

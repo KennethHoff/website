@@ -58,3 +58,21 @@ export function GithubLink() {
         </TooltipProvider>
     );
 }
+
+export function CornerExitLink() {
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <a
+                        href="https://www.kennethhoff.no"
+                        aria-label="Leave Kenny's Corner"
+                    >
+                        <pre className="text-primary">&lt;&#47;KC&gt;</pre>
+                    </a>
+                </TooltipTrigger>
+                <TooltipContent>Leave Kenny's Corner</TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
+}

@@ -1,42 +1,60 @@
 import { FileUser, GithubIcon } from "lucide-react";
 import {
-        Tooltip,
-        TooltipContent,
-        TooltipProvider,
-        TooltipTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
 } from "./ui/tooltip";
 
 export function ResumeLink() {
-        return (
-                <TooltipProvider>
-                        <Tooltip>
-                                <TooltipTrigger asChild>
-                                        <a href="/resume" aria-label="Resumé">
-                                                <FileUser aria-hidden />
-                                        </a>
-                                </TooltipTrigger>
-                                <TooltipContent>My Resumé</TooltipContent>
-                        </Tooltip>
-                </TooltipProvider>
-        );
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <a href="/resume" aria-label="Resumé">
+                        <FileUser aria-hidden />
+                    </a>
+                </TooltipTrigger>
+                <TooltipContent>My Resumé</TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
 }
 
 export function GithubLink() {
-        return (
-                <TooltipProvider>
-                        <Tooltip>
-                                <TooltipTrigger asChild>
-                                        <a
-                                                href="https://github.com/kennethhoff/website"
-                                                aria-label="The GitHub repository for this website"
-                                        >
-                                                <GithubIcon aria-hidden />
-                                        </a>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                        The GitHub repository for this website
-                                </TooltipContent>
-                        </Tooltip>
-                </TooltipProvider>
-        );
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <a
+                        href="https://github.com/kennethhoff/website"
+                        aria-label="The GitHub repository for this website"
+                    >
+                        <GithubIcon aria-hidden />
+                    </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                    The GitHub repository for this website
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
+}
+
+export function CornerEntryLink() {
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <a
+                        href="https://corner.kennethhoff.no"
+                        aria-label="Enter Kenny's Corner"
+                    >
+                        <pre className="text-primary">&lt;KC&#47;&gt;</pre>
+                    </a>
+                </TooltipTrigger>
+                <TooltipContent>Enter Kenny's Corner</TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
 }
