@@ -50,7 +50,7 @@ export function CornerEntryLink() {
                         href="https://corner.kennethhoff.no"
                         aria-label="Enter Kenny's Corner"
                     >
-                        <pre className="text-primary">&lt;KC&#47;&gt;</pre>
+                        <pre className="text-primary">&lt;KC&gt;</pre>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>Enter Kenny's Corner</TooltipContent>
