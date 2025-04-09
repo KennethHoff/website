@@ -1,5 +1,10 @@
 import { FileUser, GithubIcon, RssIcon } from "lucide-react";
-import { TooltipProvider, TooltipTrigger, Tooltip, TooltipContent } from "./ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "./ui/tooltip";
 
 export function ResumeLink() {
     return (
@@ -10,22 +15,22 @@ export function ResumeLink() {
                         <FileUser aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>Kenneth Hoff's resumé</TooltipContent>
+                <TooltipContent>My Resumé</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
 }
 
-export function CuriosRssFeedLink() {
+export function RssFeedLink() {
     return (
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="/curios/rss.xml" aria-label="RSS Feed for Kenny's Curios">
+                    <a href="/rss.xml" aria-label="RSS Feed for Kenny's Corner">
                         <RssIcon aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>RSS Feed for Kenny's Curios</TooltipContent>
+                <TooltipContent>RSS Feed</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
@@ -36,11 +41,16 @@ export function GithubLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="https://github.com/kennethhoff/kennyscorner" aria-label="The GitHub repository for this website">
+                    <a
+                        href="https://github.com/kennethhoff/website"
+                        aria-label="The GitHub repository for this website"
+                    >
                         <GithubIcon aria-hidden />
                     </a>
                 </TooltipTrigger>
-                <TooltipContent>The GitHub repository for this website</TooltipContent>
+                <TooltipContent>
+                    The GitHub repository for this website
+                </TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );

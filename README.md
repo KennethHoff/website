@@ -1,12 +1,12 @@
-# Kenny's Corner
+# My website
 
-This is an Astro-based Web App.
+This is a monorepo for all of my websites, including [Kenny's Corner](https://corner.kennethhoff.no) and my [personal website](https://kennethhoff.no)
 
 ## Prerequisite
 
 ### Nixpkgs (Recommended)
 
-This way will automatically install all required tools needed to build, run, deploy and otherwise work on this project.
+This way will automatically install all required tools needed to build, run, deploy, and otherwise work on this project.
 
 1. Make sure the [nixpkgs](https://github.com/NixOS/nixpkgs) package manager is installed 
     * Can be installed on Mac, Linux and Windows (through WSL)

@@ -11,8 +11,8 @@ function defineStructuredData<T extends Thing>(
     return thing;
 }
 
-const curios = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/curios" }),
+const articles = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
     schema: z
         .object({
             title: z.string(),
@@ -34,4 +34,4 @@ const curios = defineCollection({
         })),
 });
 
-export const collections = { curios };
+export const collections = { articles };
