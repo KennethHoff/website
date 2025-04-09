@@ -10,8 +10,7 @@
     "includes": ["src/**/*", "!src/global.css"]
   },
   "formatter": {
-    "enabled": true,
-    "useEditorconfig": true
+    "enabled": true
   },
   "linter": {
     "enabled": true,
