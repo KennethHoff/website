@@ -31,7 +31,6 @@ interface Props {
     >
         <slot name="header">
             <header class="col-breakout grid h-12 grid-cols-subgrid items-center bg-stone-400 px-4">
-                <a href="/" class="text-primary">&lt;KC&gt;</a>
             </header>
         </slot>
         <slot />
@@ -41,7 +40,7 @@ interface Props {
                     <ResumeLink client:visible />
                     <GithubLink client:visible />
                 </div>
-                <pre class="text-primary">&lt;KC&#47;&gt;</pre>
+                <a href="https://corner.kennethhoff.no" class="text-primary">&lt;KC &#47;&gt;</a>
             </footer>
         </slot>
         <SpeedInsights />
