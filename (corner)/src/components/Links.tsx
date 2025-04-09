@@ -11,7 +11,10 @@ export function ResumeLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="/resume" aria-label="Resumé">
+                    <a
+                        href="https://www.kennethhoff.no/resume"
+                        aria-label="Resumé"
+                    >
                         <FileUser aria-hidden />
                     </a>
                 </TooltipTrigger>

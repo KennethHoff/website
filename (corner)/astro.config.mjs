@@ -28,4 +28,10 @@ export default defineConfig({
     integrations: [sitemap(), react()],
     adapter: vercel(),
     trailingSlash: "never",
+    redirects: {
+        "/resume": {
+            status: 301,
+            destination: "https://www.kennethhoff.no/resume"
+        }
+    }
 });
