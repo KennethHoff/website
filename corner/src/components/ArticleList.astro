@@ -5,19 +5,18 @@ interface Props {
     class?: string;
 }
 
-const curios = await getCollection("curios");
+const articles = await getCollection("articles");
 ---
 
 <ol class:list={[Astro.props.class]}>
-    {curios.map((curio) => {
-    const path = `/curios/${curio.id}`;
+    {articles.map(article => {
             return (
                 <li class="has-aria-[current='page']:text-blue-300">
                     <a
-                        aria-current={Astro.url.pathname.startsWith(path) ? "page" : undefined}
-                        href={path}
+                        aria-current={Astro.url.pathname.startsWith(article.id) ? "page" : undefined}
+                        href={article.id}
                     >
-                        {curio.data.title}
+                        {article.data.title}
                     </a>
                 </li>
             );

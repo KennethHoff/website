@@ -1,15 +1,13 @@
 ---
-import Layout from "@/components/Layout.astro";
+import Layout from "@/components/Layout.astro"
+import ArticleList from "@/components/ArticleList.astro"
 ---
 
-<Layout
-    seo={{
-        title:  "Kenny's Corner",
-        canonical: Astro.url,
-    }}
->
+<Layout seo={{
+    title: "Kenny's Corner",
+    canonical: Astro.url,
+}}>
     <main class="col-content prose py-4">
-        <p>This page is great, isn't it.... Only a single link on it.</p>
-        <a href="/curios">Curios</a>
+        <ArticleList class="col-content"/>
     </main>
 </Layout>

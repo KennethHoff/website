@@ -6,32 +6,32 @@ import type { Thing, WithContext } from "schema-dts";
  * Noop function for improved type-safety
  **/
 function defineStructuredData<T extends Thing>(
-    thing: WithContext<T>,
+        thing: WithContext<T>,
 ): WithContext<T> {
-    return thing;
+        return thing;
 }
 
-const curios = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/curios" }),
-    schema: z
-        .object({
-            title: z.string(),
-            author: z.string(),
-            description: z.string().optional(),
-            created: z.coerce.date(),
-            modified: z.coerce.date().optional(),
-        })
-        .transform((data) => ({
-            ...data,
-            structuredData: defineStructuredData({
-                "@context": "https://schema.org",
-                "@type": "TechArticle",
-                datePublished: data.created.toUTCString(),
-                ...(data.modified && {
-                    dateModified: data.modified.toUTCString(),
-                }),
-            }),
-        })),
+const articles = defineCollection({
+        loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
+        schema: z
+                .object({
+                        title: z.string(),
+                        author: z.string(),
+                        description: z.string().optional(),
+                        created: z.coerce.date(),
+                        modified: z.coerce.date().optional(),
+                })
+                .transform((data) => ({
+                        ...data,
+                        structuredData: defineStructuredData({
+                                "@context": "https://schema.org",
+                                "@type": "TechArticle",
+                                datePublished: data.created.toUTCString(),
+                                ...(data.modified && {
+                                        dateModified: data.modified.toUTCString(),
+                                }),
+                        }),
+                })),
 });
 
-export const collections = { curios };
+export const collections = { articles };
