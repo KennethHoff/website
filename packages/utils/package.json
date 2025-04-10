@@ -4,7 +4,10 @@
 	"exports": {
 		".": "./index.ts"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"clsx": "2.1.1",
+		"tailwind-merge": "3.2.0"
+	},
 	"devDependencies": {
 		"typescript": "5.8.3"
 	}
