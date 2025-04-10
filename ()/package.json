@@ -9,6 +9,7 @@
     "format": "biome check --write ."
   },
   "dependencies": {
+    "@lib/utils": "workspace:*",
     "@astrojs/check": "0.9.4",
     "@astrojs/react": "4.2.3",
     "@astrojs/rss": "4.0.11",
