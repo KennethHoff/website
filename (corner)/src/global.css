@@ -43,9 +43,13 @@
 
 :root {
     color: var(--color-base-content);
-    --primary-grid-template-columns: [breakout-start] minmax(var(--primary-grid-additional-outer-padding), auto)
+    --primary-grid-template-columns:
+        /* Track 1 (Left Gutter) */
+        [breakout-start] minmax(var(--primary-grid-additional-outer-padding), 1fr)
+        /* Track 2 (Content Columns - 12 of them) */
         [content-start] repeat(12, minmax(0, calc(120px - var(--primary-grid-column-gap)))) [content-end]
-        minmax(var(--primary-grid-additional-outer-padding), auto) [breakout-end];
+        /* Track 3 (Right Gutter) */
+        minmax(var(--primary-grid-additional-outer-padding), 1fr) [breakout-end];
 
     --primary-grid-column-gap: 5vw;
     --primary-grid-outer-padding: 5vw;

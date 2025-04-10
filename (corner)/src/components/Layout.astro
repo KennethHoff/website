@@ -35,19 +35,23 @@ interface Props {
         class="grid min-h-screen grid-cols-(--primary-grid-template-columns) grid-rows-[auto_1fr_auto] gap-x-(--primary-grid-column-gap) bg-stone-200"
     >
         <slot name="header">
-            <header class="col-breakout grid h-12 grid-cols-subgrid items-center bg-stone-400 px-4">
-                <a href="/" class="text-primary">&lt;KC&gt;</a>
+            <header class="col-breakout grid h-12 grid-cols-subgrid bg-stone-400">
+                <div  class="col-content flex items-center">
+                    <a href="/" class="text-primary">&lt;KC&gt;</a>
+                </div>
             </header>
         </slot>
         <slot />
         <slot name="footer">
-            <footer class="col-breakout flex h-12 place-content-between items-center bg-stone-400 px-4">
-                <div class="flex flex-row gap-4">
-                    <ResumeLink client:visible />
-                    <GithubLink client:visible />
-                    <RssFeedLink client:visible />
+            <footer class="col-breakout grid h-12 grid-cols-subgrid bg-stone-400">
+                <div class="col-content flex place-content-between items-center">
+                    <div class="flex flex-row gap-4">
+                        <ResumeLink client:visible />
+                        <GithubLink client:visible />
+                        <RssFeedLink client:visible />
+                    </div>
+                    <CornerExitLink client:visible />
                 </div>
-                <CornerExitLink client:visible />
             </footer>
         </slot>
         <SpeedInsights />

@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "@/components/Layout.astro";
+---
+
+<Layout seo={{
+    title: "Page Not Found (404) | Kenneth Hoff", // More standard title
+    description: "Oops! The page you were looking for wasn't found.", // Clear description
+}}>
+    <main class="col-content py-4 w-full grid place-content-center text-center">
+        <Icon
+            role="img"
+            aria-label="Animated compass spinning aimlessly, indicating 'lost'"
+            class="inline-block mx-auto mb-8"
+            name="line-md:compass-off-loop"
+            size={240}
+        />
+
+        <h1 class="text-4xl font-bold mb-4">Page Not Found</h1>
+        <p class="text-lg mb-6">
+            Whoops! Looks like the page you're trying to reach got lost in the digital wilderness.
+        </p>
+
+        <div class="space-y-4">
+            <nav aria-label="404 Navigation Options">
+                <ul class="list-none p-0 m-0 space-y-2">
+                    <li>
+                        <a href="/" class="text-primary hover:underline">Go back to the Homepage</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+</Layout>
