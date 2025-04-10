@@ -11,8 +11,9 @@ export function ResumeLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="/resume" aria-label="Resumé">
+                    <a href="/resume">
                         <FileUser aria-hidden />
+                        <span className="sr-only">My Resumé</span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>My Resumé</TooltipContent>
@@ -26,11 +27,11 @@ export function GithubLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a
-                        href="https://github.com/kennethhoff/website"
-                        aria-label="The GitHub repository for this website"
-                    >
+                    <a href="https://github.com/kennethhoff/website">
                         <GithubIcon aria-hidden />
+                        <span className="sr-only">
+                            The GitHub repository for this website
+                        </span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -46,11 +47,11 @@ export function CornerEntryLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a
-                        href="https://corner.kennethhoff.no"
-                        aria-label="Enter Kenny's Corner"
-                    >
-                        <pre className="text-primary">&lt;KC&gt;</pre>
+                    <a href="https://corner.kennethhoff.no">
+                        <pre className="text-primary" aria-hidden>
+                            &lt;KC&gt;
+                        </pre>
+                        <span className="sr-only"> Enter Kenny's Corner</span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>Enter Kenny's Corner</TooltipContent>

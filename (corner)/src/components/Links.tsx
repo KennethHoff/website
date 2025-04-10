@@ -11,11 +11,9 @@ export function ResumeLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a
-                        href="https://www.kennethhoff.no/resume"
-                        aria-label="Resumé"
-                    >
+                    <a href="https://www.kennethhoff.no/resume">
                         <FileUser aria-hidden />
+                        <span className="sr-only">My Resumé</span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>My Resumé</TooltipContent>
@@ -29,8 +27,11 @@ export function RssFeedLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a href="/rss.xml" aria-label="RSS Feed for Kenny's Corner">
+                    <a href="/rss.xml">
                         <RssIcon aria-hidden />
+                        <span className="sr-only">
+                            RSS Feed for Kenny's Corner
+                        </span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>RSS Feed</TooltipContent>
@@ -44,11 +45,11 @@ export function GithubLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a
-                        href="https://github.com/kennethhoff/website"
-                        aria-label="The GitHub repository for this website"
-                    >
+                    <a href="https://github.com/kennethhoff/website">
                         <GithubIcon aria-hidden />
+                        <span className="sr-only">
+                            The GitHub repository for this website
+                        </span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -64,11 +65,11 @@ export function CornerExitLink() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <a
-                        href="https://www.kennethhoff.no"
-                        aria-label="Leave Kenny's Corner"
-                    >
-                        <pre className="text-primary">&lt;&#47;KC&gt;</pre>
+                    <a href="https://www.kennethhoff.no">
+                        <pre className="text-primary" aria-hidden>
+                            &lt;&#47;KC&gt;
+                        </pre>
+                        <span className="sr-only"> Leave Kenny's Corner</span>
                     </a>
                 </TooltipTrigger>
                 <TooltipContent>Leave Kenny's Corner</TooltipContent>
