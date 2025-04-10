@@ -7,6 +7,8 @@ import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
 
+import icon from "astro-icon";
+
 const siteUrl =
     // If Production, use production URL
     process.env.VERCEL_ENV == "production"
@@ -25,7 +27,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    integrations: [sitemap(), react()],
+    integrations: [sitemap(), react(), icon()],
     adapter: vercel(),
     trailingSlash: "never",
 });

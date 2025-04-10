@@ -1,12 +1,22 @@
 ---
 import Layout from "@/components/Layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout seo={{
     title: "Kenneth Hoff",
     canonical: Astro.url,
 }}>
-    <main class="col-content prose py-4">
-        <div>Root</div>
+    <main class="col-content py-4">
+        <p>
+        </p>
+        <p>
+            <Icon class="inline" name="line-md:arrow-down" size={24}/>
+            <span class="inline">
+                Not much going on just yet.
+                There are a few links in the footer you might want to have a look at though!
+            </span>
+            <Icon class="inline" name="line-md:arrow-down" size={24}/>
+        </p>
     </main>
 </Layout>
