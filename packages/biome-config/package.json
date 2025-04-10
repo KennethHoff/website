@@ -1,0 +1,5 @@
+{
+	"name": "@lib/biome-config",
+	"type": "module",
+	"exports": "./biome.jsonc"
+}

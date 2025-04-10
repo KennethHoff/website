@@ -23,6 +23,9 @@ importers:
       '@astrojs/vercel':
         specifier: 8.1.3
         version: 8.1.3(astro@5.6.1(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))(react@19.1.0)(rollup@4.39.0)
+      '@lib/biome-config':
+        specifier: workspace:*
+        version: link:../packages/biome-config
       '@lib/utils':
         specifier: workspace:*
         version: link:../packages/utils
@@ -117,6 +120,9 @@ importers:
       '@astrojs/vercel':
         specifier: 8.1.3
         version: 8.1.3(astro@5.6.1(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))(react@19.1.0)(rollup@4.39.0)
+      '@lib/biome-config':
+        specifier: workspace:*
+        version: link:../packages/biome-config
       '@lib/utils':
         specifier: workspace:*
         version: link:../packages/utils
@@ -193,6 +199,8 @@ importers:
       typescript:
         specifier: 5.8.3
         version: 5.8.3
+
+  packages/biome-config: {}
 
   packages/utils:
     devDependencies:
