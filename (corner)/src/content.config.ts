@@ -1,6 +1,15 @@
 import { defineCollection, z } from "astro:content";
-import { defineStructuredData } from "@lib/utils";
 import { glob } from "astro/loaders";
+import type { Thing, WithContext } from "schema-dts";
+
+/**
+ * Noop function for improved type-safety
+ **/
+function defineStructuredData<T extends Thing>(
+    thing: WithContext<T>,
+): WithContext<T> {
+    return thing;
+}
 
 const articles = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
