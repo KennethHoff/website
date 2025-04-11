@@ -26,9 +26,6 @@ importers:
       '@lib/biome-config':
         specifier: workspace:*
         version: link:../packages/biome-config
-      '@lib/utils':
-        specifier: workspace:*
-        version: link:../packages/utils
       '@radix-ui/react-slot':
         specifier: 1.2.0
         version: 1.2.0(@types/react@19.1.0)(react@19.1.0)
@@ -123,9 +120,6 @@ importers:
       '@lib/biome-config':
         specifier: workspace:*
         version: link:../packages/biome-config
-      '@lib/utils':
-        specifier: workspace:*
-        version: link:../packages/utils
       '@radix-ui/react-slot':
         specifier: 1.2.0
         version: 1.2.0(@types/react@19.1.0)(react@19.1.0)
@@ -201,12 +195,6 @@ importers:
         version: 5.8.3
 
   packages/biome-config: {}
-
-  packages/utils:
-    devDependencies:
-      typescript:
-        specifier: 5.8.3
-        version: 5.8.3
 
 packages:
 
