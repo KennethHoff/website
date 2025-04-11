@@ -1,0 +1,25 @@
+---
+title: "My Mac setup"
+description: "An introduction to how I work on my Mac"
+author: "Kenneth Hoff"
+created: "2025-04-09"
+modified: "2025-04-11"
+---
+import { Image } from 'astro:assets';
+import { Icon } from "astro-icon/components";
+import devFlakeImage from "../../assets/development-flake.png";
+
+* [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+    * This is a Tiling Window Manager for Macs, inspired by [i3](https://i3wm.org/).
+    * I bind all applications to specific keybinds, like for example [Microsoft Outlook](https://formulae.brew.sh/cask/microsoft-outlook) on `option+8`, or [Slack](https://slack.com) on `option+5`.
+    * This is the only way I move between applications.
+* [<Icon class="inline" name="devicon:homebrew" size={20} /> Homebrew](https://brew.sh/)
+    * This is the primary (unofficial) package manager for MacOS.
+    * I use this to install GUI applications, like [Zen Browser](https://zen-browser.app).
+* [<Icon class="inline" name="devicon:nixos" size={20} /> nix package manager](https://github.com/NixOS/nixpkgs)
+    * This is the newest major program I've installed.
+    * Similar to homebrew, this can be used to install applications, but it has another huge feature that I primarily
+        use it for; It can install programs on a per-directory level by the use of something colloquially
+        called a ["development flake"](https://nixos-and-flakes.thiscute.world/development/intro). 
+    * You can see the flake I used to create this website [here](https://github.com/KennethHoff/website/blob/master/flake.nix) 
+    <Image src={devFlakeImage} alt="A development flake showing which applications to install, like the vercel CLI for deployment, nodeJS v22 for development and pnpm v10 for package management" />
