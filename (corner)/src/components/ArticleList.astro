@@ -5,11 +5,12 @@ interface Props {
     class?: string;
 }
 
-const articles = await getCollection("articles");
+const articles = await getCollection("articles")
+const sortedArticles = articles.toSorted((a, b) => b.data.created.getTime() - a.data.created.getTime());
 ---
 
 <ol class:list={[Astro.props.class]}>
-    {articles.map(( article ) => {
+    {sortedArticles.map(( article ) => {
             return (
                 <li class="has-aria-[current='page']:text-blue-300">
                     <a
