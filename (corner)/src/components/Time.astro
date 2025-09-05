@@ -5,11 +5,11 @@ type Props = Omit<HTMLAttributes<"a">, "datetime"> & {
     datetime: Date;
 };
 
-const { datetime, ...spreadable } = Astro.props;
+const { datetime, ...rest } = Astro.props;
 
-const dateTimeFormat = new Intl.DateTimeFormat("en-GB", {
+const dateTimeFormat = new Intl.DateTimeFormat("no-NB", {
     dateStyle: "full",
 });
 ---
 
-<time {...spreadable} datetime={datetime.toUTCString()}>{dateTimeFormat.format(Astro.props.datetime)}</time>
+<time {...rest} datetime={datetime.toUTCString()}>{dateTimeFormat.format(Astro.props.datetime)}</time>

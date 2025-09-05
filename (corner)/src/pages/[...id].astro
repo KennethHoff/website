@@ -29,10 +29,10 @@ const { Content } = await render(post);
         <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
             <h1 class="text-5xl">{post.data.title}</h1>
             <dl class="not-prose">
-                <dt class="inline">Created</dt>
+                <dt class="inline">Opprettet</dt>
                 <dd class="inline"><Time datetime={post.data.created}/></dd>
                 {post.data.modified && (
-                <dt class="inline">Updated</dt>
+                <dt class="inline">Oppdatert</dt>
                 <dd class="inline"><Time datetime={post.data.modified}/></dd>
                 )}
             </dl>
