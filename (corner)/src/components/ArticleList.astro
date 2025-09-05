@@ -3,12 +3,12 @@ import { getCollection } from "astro:content";
 import Time from "@/components/Time.astro";
 
 interface Props {
-  class?: string;
+    class?: string;
 }
 
 const articles = await getCollection("articles");
 const sortedArticles = articles.toSorted(
-  (a, b) => b.data.created.getTime() - a.data.created.getTime()
+    (a, b) => b.data.created.getTime() - a.data.created.getTime(),
 );
 ---
 

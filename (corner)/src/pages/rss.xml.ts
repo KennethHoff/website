@@ -4,7 +4,9 @@ import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
     const articles = await getCollection("articles");
-    const sortedArticles = articles.toSorted((a, b) => b.data.created.getTime() - a.data.created.getTime());
+    const sortedArticles = articles.toSorted(
+        (a, b) => b.data.created.getTime() - a.data.created.getTime(),
+    );
     return rss({
         title: "Kenny's Corner",
         description:
