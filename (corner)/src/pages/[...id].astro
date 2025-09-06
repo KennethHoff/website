@@ -19,6 +19,7 @@ const { Content } = await render(post);
 <Layout
     seo={{
         title: post.data.title,
+        description: post.data.description,
         canonical: Astro.url,
     }}
 >
@@ -27,15 +28,17 @@ const { Content } = await render(post);
 
     <main class="col-breakout grid grid-cols-subgrid">
         <article class="col-content prose justify-self-center py-4 prose-headings:text-balance prose-p:text-balance">
-            <h1 class="text-5xl">{post.data.title}</h1>
-            <dl class="not-prose">
-                <dt class="inline">Opprettet</dt>
-                <dd class="inline"><Time datetime={post.data.created}/></dd>
-                {post.data.modified && (
-                <dt class="inline">Oppdatert</dt>
-                <dd class="inline"><Time datetime={post.data.modified}/></dd>
-                )}
-            </dl>
+            <header>
+                <h1 class="text-5xl">{post.data.title}</h1>
+                <dl class="not-prose">
+                    <dt class="inline">Opprettet</dt>
+                    <dd class="inline"><Time datetime={post.data.created}/></dd>
+                    {post.data.modified && (
+                        <dt class="inline">Oppdatert</dt>
+                        <dd class="inline"><Time datetime={post.data.modified}/></dd>
+                    )}
+                </dl>
+            </header>
             <Content />
         </article>
     </main>

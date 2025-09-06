@@ -1,6 +1,6 @@
 ---
 title: "Next.js: Alle ulempene, ingen av fordelene"
-description: "Mine erfaringer med Next.js i produksjon – og hvorfor jeg mener det gir deg alle ulempene uten fordelene."
+description: "Hvorfor Next.js gir deg mer frustrasjon enn funksjonalitet – basert på mine erfaringer i tre produksjonsprosjekter."
 author: "Kenneth Hoff"
 created: "2025-09-05"
 ---
