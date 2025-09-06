@@ -73,7 +73,7 @@ Dette prosjektet er bygget opp av to applikasjoner som kjører next.js SSR.
 
   Resultatet er at alle "cross‑cutting concerns" (autentisering, logging, osv.) ender opp som en *ball of mud* som infiserer hele kodebasen. Hvis du ikke følger "the golden path", må du gjøre alt selv – og den stien er ekstremt trang.
 
-* På dette prosjektet brukte vi `next-auth`. Hadde vi visst hva vi vet nå, hadde vi skrevet alt selv fra scratch. En av utviklerne brukte titalls timer på å prøve å hacke inn BankID i `next-auth` i layout‑filen.
+* På dette prosjektet bruker vi `next-auth`. Hadde vi visst hva vi vet nå, hadde vi skrevet alt selv fra scratch. En av utviklerne brukte titalls timer på å prøve å hacke inn BankID i `next-auth` i layout‑filen.
 
 * **Sesjonshåndtering**:
   Jeg nevnte tidligere at en av fordelene med SSR er at vi kan ha en bruker‑sesjon lagret på serveren. Det høres fint ut – helt til du ser hvordan det faktisk er løst.
