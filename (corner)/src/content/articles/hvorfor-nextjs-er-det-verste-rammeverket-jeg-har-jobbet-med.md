@@ -86,9 +86,9 @@ Dette er bare det jeg kom på nå som jeg sitter og skriver ned ting, men det er
 
 Jeg har tenkt til å lage en hel serie nettopp på denne nettsiden hvor jeg går litt mer i dybden om nettopp Next.js, og hvorfor jeg mener at det praktisk talt ikke finnes noen fordeler med det over de eksisterende alternativene.
 
-Den kommer dere til å finne på 👉 [corner.kennethhoff.no/nextjs](https://corner.kennethhoff.no/nextjs)
+Den kommer dere til å finne på 👉 [corner.kennethhoff.no/nextjs](/nextjs)
 
-Abonner på [RSS feeden](https://corner.kennethhoff.no/rss.xml) for fremtidige innlegg.
+Abonner på [RSS feeden](/rss.xml) for fremtidige innlegg.
 
 \#StopUsingNextjs
 
