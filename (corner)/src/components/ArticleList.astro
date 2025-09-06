@@ -1,25 +1,38 @@
 ---
 import { getCollection } from "astro:content";
+import Time from "@/components/Time.astro";
 
 interface Props {
     class?: string;
 }
 
-const articles = await getCollection("articles")
-const sortedArticles = articles.toSorted((a, b) => b.data.created.getTime() - a.data.created.getTime());
+const articles = await getCollection("articles");
+const sortedArticles = articles.toSorted(
+    (a, b) => b.data.created.getTime() - a.data.created.getTime(),
+);
 ---
 
 <ol class:list={[Astro.props.class]}>
-    {sortedArticles.map(( article ) => {
-            return (
-                <li class="has-aria-[current='page']:text-blue-300">
-                    <a
-                        aria-current={Astro.url.pathname.startsWith(article.id) ? "page" : undefined}
-                        href={article.id}
-                    >
-                        {article.data.title}
-                    </a>
-                </li>
-            );
-        })}
+  {sortedArticles.map((article) => {
+    const isCurrent = Astro.url.pathname.startsWith(article.id);
+    return (
+      <li class="mb-4">
+        <a
+          aria-current={isCurrent ? "page" : undefined}
+          href={article.id}
+          class="block text-lg font-medium hover:underline"
+        >
+          {article.data.title}
+        </a>
+        <div class="text-sm text-gray-500">
+          <Time datetime={article.data.created} />
+          {article.data.modified && (
+            <span class="ml-2 italic">
+              (Oppdatert <Time datetime={article.data.modified} />)
+            </span>
+          )}
+        </div>
+      </li>
+    );
+  })}
 </ol>
